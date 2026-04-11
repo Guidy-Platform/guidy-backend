@@ -1,0 +1,72 @@
+## Visual Studio temporary files, build results, and user-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+.vs/
+*.userprefs
+
+## Build results
+bin/
+obj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+bld/
+out/
+*.log
+
+## ASP.NET Core configs
+appsettings.Development.json
+secrets.json
+.env
+
+## EF Core Migrations (keep migrations, ignore snapshot artifacts if any)
+**/Migrations/*.Designer.cs
+**/Migrations/*Snapshot.cs
+
+## NuGet Packages
+*.nupkg
+**/packages/*
+!**/packages/build/
+
+## Redis, cache or local DB files
+healthchecksdb
+*.db
+
+## Code coverage & test results
+*.coverage
+*.coveragexml
+TestResult*/
+coverage*.json
+coverage*.xml
+*.VisualState.xml
+nunit-*.xml
+_BenchmarkDotNet.Artifacts/
+*.dotCover
+.axoCover/*
+!*.axoCover/settings.json
+
+## Tools / IDE
+_ReSharper*/
+*.DotSettings.user
+_NCrunch_*
+*.ncb
+*.sdf
+*.VC.db
+*.VC.VC.opendb
+*.pidb
+
+## Others
+node_modules/
+wwwroot/uploads/
+*.cache
+*.tmp
+*.bak
+*.backup
+*.publishsettings
+*.pfx
+*.vspscc
+*.vssscc

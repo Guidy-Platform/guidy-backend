@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Features\Auth - Copy %282%29\**" />
+    <Compile Remove="Features\Auth - Copy %283%29\**" />
+    <Compile Remove="Features\Auth - Copy\**" />
+    <EmbeddedResource Remove="Features\Auth - Copy %282%29\**" />
+    <EmbeddedResource Remove="Features\Auth - Copy %283%29\**" />
+    <EmbeddedResource Remove="Features\Auth - Copy\**" />
+    <None Remove="Features\Auth - Copy %282%29\**" />
+    <None Remove="Features\Auth - Copy %283%29\**" />
+    <None Remove="Features\Auth - Copy\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\Auth\Validators\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="FluentValidation" Version="12.1.1" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.1" />
+    <PackageReference Include="MediatR" Version="14.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CoursePlatform.Domain\CoursePlatform.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

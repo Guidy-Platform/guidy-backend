@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "firstName": "Ahmed",
+      "lastName": "Hassan",
+      "email": "student@courseplatform.com",
+      "password": "Student@123",
+      "role": "Student"
+    },
+    {
+      "firstName": "Sara",
+      "lastName": "Ahmed",
+      "email": "instructor@courseplatform.com",
+      "password": "Instructor@123",
+      "role": "Instructor"
+    },
+    {
+      "firstName": "Admin",
+      "lastName": "User",
+      "email": "admin@courseplatform.com",
+      "password": "Admin@123",
+      "role": "Admin"
+    }
+  ]
+}
