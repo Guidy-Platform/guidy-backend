@@ -1,6 +1,14 @@
-﻿// Application/Features/Auth/Commands/ResendOtp/ResendOtpCommand.cs
-using MediatR;
+﻿using MediatR;
 
 namespace CoursePlatform.Application.Features.Auth.Commands.ResendOtp;
 
-public record ResendOtpCommand(string Email) : IRequest<Unit>;
+public enum OtpPurpose
+{
+    EmailVerification,
+    PasswordReset
+}
+
+public record ResendOtpCommand(
+    string Email,
+    OtpPurpose Purpose
+) : IRequest<Unit>;

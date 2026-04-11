@@ -11,7 +11,7 @@ builder.Services.AddEndpointsApiExplorer();
 
 
 var app = builder.Build();
-
+app.UseStaticFiles();
 app.UseMiddleware<ExceptionMiddleware>();
 
 if (app.Environment.IsDevelopment())

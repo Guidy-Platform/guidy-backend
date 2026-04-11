@@ -57,16 +57,14 @@ public class AuthController : ControllerBase
         return Ok(new { message = "Email verified successfully. You can now log in." });
     }
 
-    /// <summary>Resend OTP code to email.</summary>
     [HttpPost("resend-otp")]
     [ProducesResponseType(StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> ResendOtp(
         [FromBody] ResendOtpCommand command,
         CancellationToken ct)
     {
         await _sender.Send(command, ct);
-        return Ok(new { message = "A new OTP code has been sent to your email." });
+        return Ok(new { message = "OTP code has been sent to your email." });
     }
     /// <summary>Login and receive JWT + refresh token.</summary>
     [HttpPost("login")]

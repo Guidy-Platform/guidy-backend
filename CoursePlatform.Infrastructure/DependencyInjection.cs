@@ -83,6 +83,7 @@ public static class DependencyInjection
 
         // RabbitMQ Email Consumer كـ BackgroundService
         services.AddHostedService<EmailConsumer>();
+        services.AddScoped<IFileStorageService, LocalFileStorageService>();
 
         // Redis
         services.AddSingleton<IConnectionMultiplexer>(_ =>

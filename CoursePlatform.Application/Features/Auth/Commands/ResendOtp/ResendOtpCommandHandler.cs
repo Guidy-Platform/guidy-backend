@@ -15,7 +15,8 @@ public class ResendOtpCommandHandler
     public async Task<Unit> Handle(
         ResendOtpCommand request, CancellationToken ct)
     {
-        await _authService.ResendOtpAsync(request.Email, ct);
+        await _authService.ResendOtpAsync(
+            request.Email, request.Purpose, ct);
         return Unit.Value;
     }
 }

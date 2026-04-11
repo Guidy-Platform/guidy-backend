@@ -1,4 +1,5 @@
 ﻿// Application/Contracts/Services/IAuthService.cs
+using CoursePlatform.Application.Features.Auth.Commands.ResendOtp;
 using CoursePlatform.Application.Features.Auth.DTOs;
 
 public interface IAuthService
@@ -20,8 +21,9 @@ public interface IAuthService
         string email, string code,          // ← code مش token
         CancellationToken ct = default);
 
-    Task ResendOtpAsync(                    // ← جديد
+    Task ResendOtpAsync(
         string email,
+        OtpPurpose purpose,
         CancellationToken ct = default);
 
     Task ForgotPasswordAsync(

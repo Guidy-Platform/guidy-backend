@@ -1,6 +1,7 @@
 ﻿// Infrastructure/Services/AuthService.cs
 using CoursePlatform.Application.Common.Exceptions;
 using CoursePlatform.Application.Contracts.Services;
+using CoursePlatform.Application.Features.Auth.Commands.ResendOtp;
 using CoursePlatform.Application.Features.Auth.DTOs;
 using CoursePlatform.Application.Features.Auth.Events;
 using CoursePlatform.Domain.Entities;
@@ -55,7 +56,7 @@ public class AuthService : IAuthService
             FirstName = firstName,
             LastName = lastName,
             Email = email,
-            UserName = email,
+            UserName = await GenerateUniqueUsernameAsync(firstName, lastName),
         };
 
         var createResult = await _userManager.CreateAsync(user, password);
@@ -264,23 +265,46 @@ public class AuthService : IAuthService
     }
 
     public async Task ResendOtpAsync(
-    string email, CancellationToken ct = default)
+        string email, OtpPurpose purpose,
+        CancellationToken ct = default)
     {
         var user = await _userManager.FindByEmailAsync(email)
             ?? throw new NotFoundException("User", email);
 
-        if (user.EmailConfirmed)
-            throw new BadRequestException("Email is already verified.");
-
-        var otpCode = await _otpService.GenerateAndSaveOtpAsync(user.Id, ct);
-
-        await _publisher.PublishAsync(new UserRegisteredEvent
+        switch (purpose)
         {
-            UserId = user.Id,
-            Email = user.Email!,
-            FirstName = user.FirstName,
-            OtpCode = otpCode
-        }, "user.registered", ct);
+            case OtpPurpose.EmailVerification:
+                if (user.EmailConfirmed)
+                    throw new BadRequestException("Email is already verified.");
+
+                var verifyOtp = await _otpService
+                    .GenerateAndSaveOtpAsync(user.Id, ct);
+
+                await _publisher.PublishAsync(new UserRegisteredEvent
+                {
+                    UserId = user.Id,
+                    Email = user.Email!,
+                    FirstName = user.FirstName,
+                    OtpCode = verifyOtp
+                }, "user.registered", ct);
+                break;
+
+            case OtpPurpose.PasswordReset:
+                if (!user.EmailConfirmed || user.IsDeleted)
+                    return;  
+
+                var resetOtp = await _otpService
+                    .GenerateAndSaveOtpAsync(user.Id, ct);
+
+                await _publisher.PublishAsync(new PasswordResetRequestedEvent
+                {
+                    UserId = user.Id,
+                    Email = user.Email!,
+                    FirstName = user.FirstName,
+                    OtpCode = resetOtp
+                }, "password.reset.requested", ct);
+                break;
+        }
     }
 
     // ─── Private Helper ───────────────────────────────────────────────────
@@ -293,9 +317,35 @@ public class AuthService : IAuthService
             Email = user.Email!,
             FirstName = user.FirstName,
             LastName = user.LastName,
+            UserName = user.UserName,
             AccessToken = accessToken,
             RefreshToken = refreshToken,
             ExpiresAt = DateTime.UtcNow.AddMinutes(60),
             Roles = roles
         };
+
+
+    private async Task<string> GenerateUniqueUsernameAsync(
+        string firstName, string lastName)
+    {
+        // sara.ahmed
+        var baseUsername = $"{firstName.ToLower()}.{lastName.ToLower()}"
+            .Replace(" ", "")
+            .Normalize();
+
+        if (await _userManager.FindByNameAsync(baseUsername) is null)
+            return baseUsername;
+
+        // if "sara.ahmed" already exists, try "sara.ahmed.1234" with random 4-digit suffix until we find a unique one
+        // sara.ahmed.4821
+        string candidate;
+        do
+        {
+            var suffix = Random.Shared.Next(1000, 9999);
+            candidate = $"{baseUsername}.{suffix}";
+        }
+        while (await _userManager.FindByNameAsync(candidate) is not null);
+
+        return candidate;
+    }
 }

@@ -9,13 +9,29 @@
   <ItemGroup>
     <Compile Remove="Features\Auth - Copy %282%29\**" />
     <Compile Remove="Features\Auth - Copy %283%29\**" />
-    <Compile Remove="Features\Auth - Copy\**" />
+    <Compile Remove="Features\UserProfile\**" />
     <EmbeddedResource Remove="Features\Auth - Copy %282%29\**" />
     <EmbeddedResource Remove="Features\Auth - Copy %283%29\**" />
-    <EmbeddedResource Remove="Features\Auth - Copy\**" />
+    <EmbeddedResource Remove="Features\UserProfile\**" />
     <None Remove="Features\Auth - Copy %282%29\**" />
     <None Remove="Features\Auth - Copy %283%29\**" />
-    <None Remove="Features\Auth - Copy\**" />
+    <None Remove="Features\UserProfile\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Features\UserProfile\Commands\DeleteAvatar\DeleteAvatarCommand.cs" />
+    <Compile Include="Features\UserProfile\Commands\DeleteAvatar\DeleteAvatarCommandHandler.cs" />
+    <Compile Include="Features\UserProfile\Commands\UpdateProfile\UpdateProfileCommand.cs" />
+    <Compile Include="Features\UserProfile\Commands\UpdateProfile\UpdateProfileCommandHandler.cs" />
+    <Compile Include="Features\UserProfile\Commands\UpdateProfile\UpdateProfileCommandValidator.cs" />
+    <Compile Include="Features\UserProfile\Commands\UploadAvatar\UploadAvatarCommand.cs" />
+    <Compile Include="Features\UserProfile\Commands\UploadAvatar\UploadAvatarCommandHandler.cs" />
+    <Compile Include="Features\UserProfile\DTOs\InstructorProfileDto.cs" />
+    <Compile Include="Features\UserProfile\DTOs\UserProfileDto.cs" />
+    <Compile Include="Features\UserProfile\Queries\GetInstructorProfile\GetInstructorProfileQuery.cs" />
+    <Compile Include="Features\UserProfile\Queries\GetInstructorProfile\GetInstructorProfileQueryHandler.cs" />
+    <Compile Include="Features\UserProfile\Queries\GetMyProfile\GetMyProfileQuery.cs" />
+    <Compile Include="Features\UserProfile\Queries\GetMyProfile\GetMyProfileQueryHandler.cs" />
   </ItemGroup>
 
   <ItemGroup>
