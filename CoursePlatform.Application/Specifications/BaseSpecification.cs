@@ -20,6 +20,9 @@ public abstract class BaseSpecification<T> : ISpecification<T> where T : BaseEnt
     public int Skip { get; private set; }
     public bool IsPagingEnabled { get; private set; }
     public bool IsNoTracking { get; private set; }
+    public bool IgnoreQueryFilters { get; private set; }
+
+
 
     protected void AddCriteria(Expression<Func<T, bool>> criteria)
         => Criteria = criteria;
@@ -45,4 +48,6 @@ public abstract class BaseSpecification<T> : ISpecification<T> where T : BaseEnt
 
     protected void ApplyNoTracking()
         => IsNoTracking = true;
+    protected void ApplyIgnoreQueryFilters()
+    => IgnoreQueryFilters = true;
 }

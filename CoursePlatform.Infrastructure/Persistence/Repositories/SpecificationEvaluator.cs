@@ -17,6 +17,10 @@ public static class SpecificationEvaluator<T> where T : BaseEntity
         if (spec.Criteria is not null)
             query = query.Where(spec.Criteria);
 
+        if (spec.IgnoreQueryFilters)
+            query = query.IgnoreQueryFilters();
+
+
         query = spec.Includes
             .Aggregate(query, (q, include) => q.Include(include));
 

@@ -2,6 +2,7 @@
 using CoursePlatform.Domain.Common;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Linq.Expressions;
 
 namespace CoursePlatform.Infrastructure.Persistence.Repositories;
 
@@ -47,6 +48,18 @@ public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
     public async Task AddRangeAsync(
         IEnumerable<T> entities, CancellationToken ct = default)
         => await _context.Set<T>().AddRangeAsync(entities, ct);
+
+    public async Task<int?> GetMaxAsync(
+    Expression<Func<T, bool>> predicate,
+    Expression<Func<T, int>> selector,
+    CancellationToken ct = default)
+    {
+        return await _context.Set<T>()
+            .Where(predicate)
+            .Select(selector)
+            .DefaultIfEmpty()
+            .MaxAsync(ct);
+    }
 
     private IQueryable<T> ApplySpec(ISpecification<T> spec)
         => SpecificationEvaluator<T>.GetQuery(_context.Set<T>().AsQueryable(), spec);

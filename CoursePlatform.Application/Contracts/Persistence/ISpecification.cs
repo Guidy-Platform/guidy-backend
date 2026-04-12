@@ -13,4 +13,6 @@ public interface ISpecification<T>
     int Skip { get; }
     bool IsPagingEnabled { get; }
     bool IsNoTracking { get; }  // for read-only queries
+                                // Application/Contracts/Persistence/ISpecification.cs
+    bool IgnoreQueryFilters { get; }
 }

@@ -1,0 +1,57 @@
+{
+  "categories": [
+    {
+      "name": "Development",
+      "description": "Software development courses",
+      "order": 1,
+      "subCategories": [
+        {
+          "name": "Web Development",
+          "order": 1
+        },
+        {
+          "name": "Mobile Development",
+          "order": 2
+        },
+        {
+          "name": "Game Development",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "name": "Data Science",
+      "description": "Data, AI and Machine Learning",
+      "order": 2,
+      "subCategories": [
+        {
+          "name": "Machine Learning",
+          "order": 1
+        },
+        {
+          "name": "Deep Learning",
+          "order": 2
+        },
+        {
+          "name": "Data Analysis",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "name": "Business",
+      "description": "Business and entrepreneurship",
+      "order": 3,
+      "subCategories": [
+        {
+          "name": "Entrepreneurship",
+          "order": 1
+        },
+        {
+          "name": "Management",
+          "order": 2
+        }
+      ]
+    }
+  ]
+}

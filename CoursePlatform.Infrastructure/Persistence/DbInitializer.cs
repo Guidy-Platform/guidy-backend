@@ -1,4 +1,5 @@
 ﻿// Infrastructure/Persistence/DbInitializer.cs
+using CoursePlatform.Application.Common.Helpers;
 using CoursePlatform.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -36,6 +37,8 @@ public static class DbInitializer
 
             await SeedRolesAsync(roleManager, logger);
             await SeedUsersAsync(userManager, logger);
+            await SeedCategoriesAsync(context, logger);
+
         }
         catch (Exception ex)
         {
@@ -44,6 +47,51 @@ public static class DbInitializer
         }
     }
 
+    private static async Task SeedCategoriesAsync(
+        AppDbContext context, ILogger logger)
+    {
+        if (await context.Categories.AnyAsync()) return;
+
+        var jsonPath = Path.Combine(
+            AppContext.BaseDirectory, "SeedData", "categories.json");
+
+        if (!File.Exists(jsonPath)) return;
+
+        var json = await File.ReadAllTextAsync(jsonPath);
+        var document = JsonDocument.Parse(json);
+        var cats = document.RootElement.GetProperty("categories");
+
+        foreach (var c in cats.EnumerateArray())
+        {
+            var name = c.GetProperty("name").GetString()!;
+            var slug = SlugHelper.GenerateSlug(name);
+
+            var category = new Category
+            {
+                Name = name,
+                Slug = slug,
+                Description = c.TryGetProperty("description", out var d)
+                                ? d.GetString() : null,
+                Order = c.GetProperty("order").GetInt32(),
+            };
+
+            foreach (var s in c.GetProperty("subCategories").EnumerateArray())
+            {
+                var subName = s.GetProperty("name").GetString()!;
+                category.SubCategories.Add(new SubCategory
+                {
+                    Name = subName,
+                    Slug = SlugHelper.GenerateSlug(subName),
+                    Order = s.GetProperty("order").GetInt32(),
+                });
+            }
+
+            context.Categories.Add(category);
+        }
+
+        await context.SaveChangesAsync();
+        logger.LogInformation("Categories seeded successfully.");
+    }
     private static async Task SeedUsersAsync(
         UserManager<AppUser> userManager,
         ILogger logger)

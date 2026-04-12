@@ -1,6 +1,7 @@
 ﻿// Application/Contracts/Persistence/IGenericRepository.cs
 using CoursePlatform.Application.Common.Models;
 using CoursePlatform.Domain.Common;
+using System.Linq.Expressions;
 
 namespace CoursePlatform.Application.Contracts.Persistence;
 
@@ -23,4 +24,9 @@ public interface IGenericRepository<T> where T : BaseEntity
     void Update(T entity);
     void Delete(T entity);
     Task AddRangeAsync(IEnumerable<T> entities, CancellationToken ct = default);
+
+    Task<int?> GetMaxAsync(
+        Expression<Func<T, bool>> predicate,
+        Expression<Func<T, int>> selector,
+        CancellationToken ct = default);
 }
