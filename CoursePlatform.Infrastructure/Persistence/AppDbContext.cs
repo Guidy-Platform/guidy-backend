@@ -27,8 +27,9 @@ public class AppDbContext
 
     public DbSet<Category> Categories => Set<Category>();
     public DbSet<SubCategory> SubCategories => Set<SubCategory>();
-
     
+    public DbSet<Course> Courses => Set<Course>();
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.AddInterceptors(_auditInterceptor);
