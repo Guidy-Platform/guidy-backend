@@ -32,4 +32,8 @@ public class Course : AuditableEntity, ISoftDelete
     // Navigation
     public AppUser Instructor { get; set; } = null!;
     public SubCategory SubCategory { get; set; } = null!;
+
+
+    public ICollection<Section> Sections { get; set; } = new List<Section>();
+    //public ICollection<Enrollment> Enrollments { get; set; } = new List<Enrollment>();
 }

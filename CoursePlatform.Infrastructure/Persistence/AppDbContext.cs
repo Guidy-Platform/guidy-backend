@@ -28,7 +28,12 @@ public class AppDbContext
     public DbSet<Category> Categories => Set<Category>();
     public DbSet<SubCategory> SubCategories => Set<SubCategory>();
     
+    
     public DbSet<Course> Courses => Set<Course>();
+    public DbSet<Section> Sections => Set<Section>();
+    public DbSet<Lesson> Lessons => Set<Lesson>();
+
+    public DbSet<Resource> Resources => Set<Resource>();
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

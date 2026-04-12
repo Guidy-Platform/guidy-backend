@@ -9,12 +9,15 @@
   <ItemGroup>
     <Compile Remove="Features\Auth - Copy %282%29\**" />
     <Compile Remove="Features\Auth - Copy %283%29\**" />
+    <Compile Remove="Features\Curriculum\DTOs - Copy\**" />
     <Compile Remove="Features\UserProfile\**" />
     <EmbeddedResource Remove="Features\Auth - Copy %282%29\**" />
     <EmbeddedResource Remove="Features\Auth - Copy %283%29\**" />
+    <EmbeddedResource Remove="Features\Curriculum\DTOs - Copy\**" />
     <EmbeddedResource Remove="Features\UserProfile\**" />
     <None Remove="Features\Auth - Copy %282%29\**" />
     <None Remove="Features\Auth - Copy %283%29\**" />
+    <None Remove="Features\Curriculum\DTOs - Copy\**" />
     <None Remove="Features\UserProfile\**" />
   </ItemGroup>
 
