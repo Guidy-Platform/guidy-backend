@@ -1,5 +1,4 @@
-﻿// Infrastructure/DependencyInjection.cs
-using CoursePlatform.Application.Contracts.Persistence;
+﻿using CoursePlatform.Application.Contracts.Persistence;
 using CoursePlatform.Application.Contracts.Services;
 using CoursePlatform.Domain.Entities;
 using CoursePlatform.Infrastructure.Persistence;
@@ -84,6 +83,11 @@ public static class DependencyInjection
         // RabbitMQ Email Consumer كـ BackgroundService
         services.AddHostedService<EmailConsumer>();
         services.AddScoped<IFileStorageService, LocalFileStorageService>();
+
+        // File handling
+        services.AddScoped<IFileTypeValidator, FileTypeValidator>();
+        services.AddScoped<IFileStorageService, LocalFileStorageService>();
+
 
         // Redis
         services.AddSingleton<IConnectionMultiplexer>(_ =>

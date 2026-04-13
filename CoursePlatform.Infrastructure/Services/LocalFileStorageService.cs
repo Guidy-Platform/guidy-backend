@@ -1,40 +1,45 @@
 ﻿using CoursePlatform.Application.Contracts.Services;
-using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Logging;
 
 namespace CoursePlatform.Infrastructure.Services;
 
 public class LocalFileStorageService : IFileStorageService
 {
-    private readonly string _uploadsRoot;
+    private readonly string _wwwrootPath;
     private readonly ILogger<LocalFileStorageService> _logger;
 
     public LocalFileStorageService(
-        IHostEnvironment env,
+        IWebHostEnvironment env,
         ILogger<LocalFileStorageService> logger)
     {
-        // الملفات بتتحفظ في wwwroot/uploads
-        _uploadsRoot = Path.Combine(env.ContentRootPath, "wwwroot", "uploads");
+        // الملفات في wwwroot/uploads
+        _wwwrootPath = env.WebRootPath
+            ?? Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
         _logger = logger;
     }
 
     public async Task<string> SaveAsync(
-        Stream fileStream, string fileName,
-        string folder, CancellationToken ct = default)
+        Stream fileStream,
+        string fileName,
+        string folder,
+        CancellationToken ct = default)
     {
-        // إنشاء الـ folder لو مش موجود
-        var folderPath = Path.Combine(_uploadsRoot, folder);
+        var folderPath = Path.Combine(_wwwrootPath, "uploads", folder);
         Directory.CreateDirectory(folderPath);
 
         var filePath = Path.Combine(folderPath, fileName);
 
         await using var fs = new FileStream(
-            filePath, FileMode.Create, FileAccess.Write);
+            filePath, FileMode.Create, FileAccess.Write,
+            FileShare.None, bufferSize: 81920, useAsync: true);
+
+        fileStream.Position = 0;  // تأكد من البداية
         await fileStream.CopyToAsync(fs, ct);
 
-        _logger.LogInformation("File saved: {Path}", filePath);
+        _logger.LogInformation("File saved: uploads/{Folder}/{FileName}",
+            folder, fileName);
 
-        // رجعي الـ relative URL للـ client
         return $"/uploads/{folder}/{fileName}";
     }
 
@@ -42,27 +47,39 @@ public class LocalFileStorageService : IFileStorageService
     {
         try
         {
-            if (string.IsNullOrEmpty(fileUrl)) return Task.CompletedTask;
+            if (string.IsNullOrEmpty(fileUrl))
+                return Task.CompletedTask;
 
-            // حول الـ URL لـ physical path
-            // /uploads/avatars/file.jpg → wwwroot/uploads/avatars/file.jpg
-            var relativePath = fileUrl.TrimStart('/').Replace('/', Path.DirectorySeparatorChar);
-            var fullPath = Path.Combine(
-                _uploadsRoot, "..", relativePath);
-            var normalizedPath = Path.GetFullPath(fullPath);
+            // /uploads/resources/file.pdf → wwwroot/uploads/resources/file.pdf
+            var relativePath = fileUrl.TrimStart('/')
+                                      .Replace('/', Path.DirectorySeparatorChar);
+            var fullPath = Path.Combine(_wwwrootPath, relativePath);
+            var normalized = Path.GetFullPath(fullPath);
 
-            if (File.Exists(normalizedPath))
+            // Security check — مش نحذف files خارج الـ wwwroot
+            if (!normalized.StartsWith(
+                    Path.GetFullPath(_wwwrootPath),
+                    StringComparison.OrdinalIgnoreCase))
             {
-                File.Delete(normalizedPath);
-                _logger.LogInformation("File deleted: {Path}", normalizedPath);
+                _logger.LogWarning(
+                    "Attempted path traversal attack: {Url}", fileUrl);
+                return Task.CompletedTask;
+            }
+
+            if (File.Exists(normalized))
+            {
+                File.Delete(normalized);
+                _logger.LogInformation("File deleted: {Path}", normalized);
             }
         }
         catch (Exception ex)
         {
-            // مش بنرمي error لو الحذف فشل — مش critical
             _logger.LogWarning(ex, "Failed to delete file: {Url}", fileUrl);
         }
 
         return Task.CompletedTask;
     }
+
+    public string GetFullUrl(string relativeUrl, string baseUrl)
+        => $"{baseUrl.TrimEnd('/')}{relativeUrl}";
 }
