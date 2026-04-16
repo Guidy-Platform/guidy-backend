@@ -1,4 +1,4 @@
-// API/Program.cs
+﻿// API/Program.cs
 using CoursePlatform.API.Extensions;
 using CoursePlatform.API.Middleware;
 using Microsoft.AspNetCore.Http.Features;
@@ -23,14 +23,28 @@ builder.WebHost.ConfigureKestrel(options =>
 
 
 var app = builder.Build();
-app.UseStaticFiles();
-app.UseMiddleware<ExceptionMiddleware>();
+app.Use(async (context, next) =>
+{
+    context.Request.EnableBuffering();  // ← بيخلي الـ stream seekable
+    await next();
+});
+
 
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+
+app.UseStaticFiles();
+
+
+
+
+app.UseMiddleware<ExceptionMiddleware>();
+
+
 
 app.UseAuthentication();
 app.UseAuthorization();

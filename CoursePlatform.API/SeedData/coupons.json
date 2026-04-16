@@ -1,0 +1,36 @@
+{
+  "coupons": [
+    {
+      "code": "SAVE20",
+      "discountType": "Percentage",
+      "discountValue": 20,
+      "usageLimit": 100,
+      "expiresAt": null,
+      "isActive": true
+    },
+    {
+      "code": "FLAT10",
+      "discountType": "FixedAmount",
+      "discountValue": 10,
+      "usageLimit": 50,
+      "expiresAt": null,
+      "isActive": true
+    },
+    {
+      "code": "EXPIRED",
+      "discountType": "Percentage",
+      "discountValue": 30,
+      "usageLimit": null,
+      "expiresAt": "2024-01-01T00:00:00Z",
+      "isActive": true
+    },
+    {
+      "code": "FREECOURSE",
+      "discountType": "Percentage",
+      "discountValue": 100,
+      "usageLimit": 10,
+      "expiresAt": null,
+      "isActive": true
+    }
+  ]
+}

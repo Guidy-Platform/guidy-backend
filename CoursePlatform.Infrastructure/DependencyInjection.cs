@@ -87,7 +87,8 @@ public static class DependencyInjection
         // File handling
         services.AddScoped<IFileTypeValidator, FileTypeValidator>();
         services.AddScoped<IFileStorageService, LocalFileStorageService>();
-
+        // Payment
+        services.AddScoped<IPaymentService, StripePaymentService>();
 
         // Redis
         services.AddSingleton<IConnectionMultiplexer>(_ =>

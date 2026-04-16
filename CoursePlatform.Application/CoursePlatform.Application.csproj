@@ -48,4 +48,12 @@
     <ProjectReference Include="..\CoursePlatform.Domain\CoursePlatform.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Enrollments\Commands\" />
+    <Folder Include="Features\Enrollments\Queries\GetEnrolledCourseDetails\" />
+    <Folder Include="Features\Enrollments\Queries\CheckEnrollment\" />
+    <Folder Include="Features\Progress\Commands\" />
+    <Folder Include="Features\Progress\Queries\" />
+  </ItemGroup>
+
 </Project>

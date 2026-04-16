@@ -24,16 +24,20 @@ public class AppDbContext
     // DbSets add with each  feature
     public DbSet<RefreshToken> RefreshTokens => Set<RefreshToken>();
     public DbSet<EmailOtp> EmailOtps => Set<EmailOtp>();
-
+    // Category Management
     public DbSet<Category> Categories => Set<Category>();
     public DbSet<SubCategory> SubCategories => Set<SubCategory>();
-    
-    
+
+    // Course Management
     public DbSet<Course> Courses => Set<Course>();
     public DbSet<Section> Sections => Set<Section>();
     public DbSet<Lesson> Lessons => Set<Lesson>();
-
     public DbSet<Resource> Resources => Set<Resource>();
+    // Order and Enrollment
+    public DbSet<Order> Orders => Set<Order>();
+    public DbSet<OrderItem> OrderItems => Set<OrderItem>();
+    public DbSet<Enrollment> Enrollments => Set<Enrollment>();
+    public DbSet<Coupon> Coupons => Set<Coupon>();
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

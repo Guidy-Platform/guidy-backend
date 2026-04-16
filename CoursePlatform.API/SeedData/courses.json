@@ -1,0 +1,1037 @@
+{
+  "courses": [
+    {
+      "title": "ASP.NET Core Masterclass",
+      "description": "Master ASP.NET Core from scratch to advanced. Build production-grade REST APIs, implement authentication, work with databases using Entity Framework Core, and deploy to the cloud. This course covers real-world scenarios and best practices used in the industry.",
+      "shortDescription": "Build production-grade APIs with ASP.NET Core",
+      "price": 49.99,
+      "discountPrice": 39.99,
+      "level": "Intermediate",
+      "language": "English",
+      "subCategorySlug": "web-development",
+      "instructorEmail": "instructor@courseplatform.com",
+      "requirements": [
+        "Basic C# knowledge",
+        "Understanding of OOP concepts",
+        "Visual Studio or VS Code installed"
+      ],
+      "whatYouLearn": [
+        "Build RESTful APIs with ASP.NET Core",
+        "Implement JWT authentication",
+        "Work with Entity Framework Core",
+        "Deploy to Azure"
+      ],
+      "sections": [
+        {
+          "title": "Getting Started",
+          "lessons": [
+            {
+              "title": "Course Introduction",
+              "description": "Overview of what we will build in this course.",
+              "durationInSeconds": 312,
+              "type": "Video",
+              "isFreePreview": true
+            },
+            {
+              "title": "Setting Up Your Development Environment",
+              "description": "Install .NET SDK, Visual Studio, and all required tools.",
+              "durationInSeconds": 845,
+              "type": "Video",
+              "isFreePreview": true
+            },
+            {
+              "title": "Your First ASP.NET Core App",
+              "description": "Create and run your first ASP.NET Core application.",
+              "durationInSeconds": 1020,
+              "type": "Video",
+              "isFreePreview": false
+            }
+          ]
+        },
+        {
+          "title": "Building REST APIs",
+          "lessons": [
+            {
+              "title": "Understanding REST Principles",
+              "description": "Learn what REST is and the principles behind it.",
+              "durationInSeconds": 920,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "Controllers and Routing",
+              "description": "Deep dive into controllers, actions, and routing in ASP.NET Core.",
+              "durationInSeconds": 1340,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "HTTP Methods and Status Codes",
+              "description": "GET, POST, PUT, PATCH, DELETE — when to use each.",
+              "durationInSeconds": 780,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "REST API Quiz",
+              "description": "Test your understanding of REST API concepts.",
+              "durationInSeconds": 0,
+              "type": "Quiz",
+              "isFreePreview": false
+            }
+          ]
+        },
+        {
+          "title": "Entity Framework Core",
+          "lessons": [
+            {
+              "title": "Introduction to EF Core",
+              "description": "What is an ORM and why use EF Core.",
+              "durationInSeconds": 870,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "Code First Approach",
+              "description": "Create your database from C# classes.",
+              "durationInSeconds": 1560,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "Migrations and Seeding",
+              "description": "Manage database schema changes with migrations.",
+              "durationInSeconds": 1120,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "Querying Data with LINQ",
+              "description": "Use LINQ to query your database efficiently.",
+              "durationInSeconds": 1890,
+              "type": "Video",
+              "isFreePreview": false
+            }
+          ]
+        },
+        {
+          "title": "Authentication and Authorization",
+          "lessons": [
+            {
+              "title": "JWT Authentication Explained",
+              "description": "Understand how JWT tokens work.",
+              "durationInSeconds": 940,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "Implementing JWT in ASP.NET Core",
+              "description": "Add JWT authentication to your API step by step.",
+              "durationInSeconds": 1670,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "Role-Based Authorization",
+              "description": "Restrict endpoints based on user roles.",
+              "durationInSeconds": 980,
+              "type": "Video",
+              "isFreePreview": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Clean Architecture in .NET",
+      "description": "Learn how to structure .NET applications using Clean Architecture principles. This course teaches you CQRS, MediatR, Repository Pattern, Unit of Work, Specification Pattern, and Domain-Driven Design with hands-on projects.",
+      "shortDescription": "Professional .NET project structure",
+      "price": 59.99,
+      "discountPrice": null,
+      "level": "Advanced",
+      "language": "English",
+      "subCategorySlug": "web-development",
+      "instructorEmail": "instructor@courseplatform.com",
+      "requirements": [
+        "Intermediate C# skills",
+        "Experience with ASP.NET Core",
+        "Basic understanding of design patterns"
+      ],
+      "whatYouLearn": [
+        "Implement Clean Architecture",
+        "Apply CQRS with MediatR",
+        "Use Repository and Unit of Work patterns",
+        "Write clean, maintainable code"
+      ],
+      "sections": [
+        {
+          "title": "Clean Architecture Fundamentals",
+          "lessons": [
+            {
+              "title": "What is Clean Architecture?",
+              "description": "Understand the layers and principles of Clean Architecture.",
+              "durationInSeconds": 1240,
+              "type": "Video",
+              "isFreePreview": true
+            },
+            {
+              "title": "The Dependency Rule",
+              "description": "Learn the most important rule in Clean Architecture.",
+              "durationInSeconds": 890,
+              "type": "Video",
+              "isFreePreview": true
+            },
+            {
+              "title": "Setting Up the Solution Structure",
+              "description": "Create the project structure following Clean Architecture.",
+              "durationInSeconds": 1540,
+              "type": "Video",
+              "isFreePreview": false
+            }
+          ]
+        },
+        {
+          "title": "CQRS with MediatR",
+          "lessons": [
+            {
+              "title": "Introduction to CQRS",
+              "description": "Why separate Commands from Queries.",
+              "durationInSeconds": 780,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "Setting Up MediatR",
+              "description": "Install and configure MediatR in your project.",
+              "durationInSeconds": 640,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "Writing Your First Command",
+              "description": "Create a Command, Handler, and Validator.",
+              "durationInSeconds": 1340,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "Writing Your First Query",
+              "description": "Create a Query and Handler with pagination.",
+              "durationInSeconds": 1120,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "Pipeline Behaviors",
+              "description": "Add logging and validation as pipeline behaviors.",
+              "durationInSeconds": 1560,
+              "type": "Video",
+              "isFreePreview": false
+            }
+          ]
+        },
+        {
+          "title": "Repository and Unit of Work",
+          "lessons": [
+            {
+              "title": "Generic Repository Pattern",
+              "description": "Build a generic repository that works with any entity.",
+              "durationInSeconds": 1780,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "Specification Pattern",
+              "description": "Create reusable query specifications.",
+              "durationInSeconds": 1430,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "Unit of Work Implementation",
+              "description": "Wrap multiple operations in a single transaction.",
+              "durationInSeconds": 980,
+              "type": "Video",
+              "isFreePreview": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "React for Beginners",
+      "description": "Start your frontend journey with React. Learn components, state management, hooks, routing, and how to connect your React app to a backend API. Build real projects from scratch.",
+      "shortDescription": "Learn React from zero to hero",
+      "price": 44.99,
+      "discountPrice": 34.99,
+      "level": "Beginner",
+      "language": "English",
+      "subCategorySlug": "web-development",
+      "instructorEmail": "instructor@courseplatform.com",
+      "requirements": [
+        "Basic HTML and CSS",
+        "Basic JavaScript knowledge",
+        "A code editor installed"
+      ],
+      "whatYouLearn": [
+        "Build React components",
+        "Manage state with useState and useReducer",
+        "Fetch data from APIs",
+        "Build a complete React application"
+      ],
+      "sections": [
+        {
+          "title": "React Basics",
+          "lessons": [
+            {
+              "title": "What is React?",
+              "description": "Introduction to React and why it exists.",
+              "durationInSeconds": 540,
+              "type": "Video",
+              "isFreePreview": true
+            },
+            {
+              "title": "JSX Syntax",
+              "description": "Writing HTML inside JavaScript with JSX.",
+              "durationInSeconds": 780,
+              "type": "Video",
+              "isFreePreview": true
+            },
+            {
+              "title": "Components and Props",
+              "description": "Build and reuse components with props.",
+              "durationInSeconds": 1120,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "State with useState",
+              "description": "Manage component state using the useState hook.",
+              "durationInSeconds": 1340,
+              "type": "Video",
+              "isFreePreview": false
+            }
+          ]
+        },
+        {
+          "title": "React Hooks",
+          "lessons": [
+            {
+              "title": "useEffect Hook",
+              "description": "Handle side effects in functional components.",
+              "durationInSeconds": 1560,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "useContext Hook",
+              "description": "Share state across components without prop drilling.",
+              "durationInSeconds": 980,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "Custom Hooks",
+              "description": "Create your own reusable hooks.",
+              "durationInSeconds": 1230,
+              "type": "Video",
+              "isFreePreview": false
+            }
+          ]
+        },
+        {
+          "title": "Connecting to APIs",
+          "lessons": [
+            {
+              "title": "Fetch API and Axios",
+              "description": "Make HTTP requests from React.",
+              "durationInSeconds": 890,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "Loading and Error States",
+              "description": "Handle loading spinners and error messages.",
+              "durationInSeconds": 670,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "Building a Full CRUD App",
+              "description": "Connect to a real backend and build a complete CRUD app.",
+              "durationInSeconds": 2340,
+              "type": "Video",
+              "isFreePreview": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Python for Data Science",
+      "description": "Learn Python specifically for data science and machine learning. Covers NumPy, Pandas, Matplotlib, Seaborn, and an introduction to Scikit-learn. Work with real datasets throughout the course.",
+      "shortDescription": "Python, Pandas, NumPy, and ML basics",
+      "price": 54.99,
+      "discountPrice": 44.99,
+      "level": "Beginner",
+      "language": "English",
+      "subCategorySlug": "data-analysis",
+      "instructorEmail": "instructor@courseplatform.com",
+      "requirements": [
+        "No prior programming experience needed",
+        "A computer with internet access",
+        "Willingness to learn"
+      ],
+      "whatYouLearn": [
+        "Python programming basics",
+        "Data manipulation with Pandas",
+        "Data visualization with Matplotlib",
+        "Introduction to Machine Learning"
+      ],
+      "sections": [
+        {
+          "title": "Python Fundamentals",
+          "lessons": [
+            {
+              "title": "Python Introduction",
+              "description": "Why Python for data science and setting up your environment.",
+              "durationInSeconds": 780,
+              "type": "Video",
+              "isFreePreview": true
+            },
+            {
+              "title": "Variables and Data Types",
+              "description": "Numbers, strings, lists, dictionaries, and more.",
+              "durationInSeconds": 1340,
+              "type": "Video",
+              "isFreePreview": true
+            },
+            {
+              "title": "Control Flow",
+              "description": "If statements, loops, and functions in Python.",
+              "durationInSeconds": 1560,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "Python Quiz",
+              "description": "Test your Python basics knowledge.",
+              "durationInSeconds": 0,
+              "type": "Quiz",
+              "isFreePreview": false
+            }
+          ]
+        },
+        {
+          "title": "NumPy and Pandas",
+          "lessons": [
+            {
+              "title": "Introduction to NumPy",
+              "description": "Arrays, operations, and mathematical functions.",
+              "durationInSeconds": 1120,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "Pandas DataFrames",
+              "description": "Load, manipulate, and analyze data with Pandas.",
+              "durationInSeconds": 1890,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "Data Cleaning",
+              "description": "Handle missing values, duplicates, and outliers.",
+              "durationInSeconds": 1560,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "Working with Real Datasets",
+              "description": "Practice with real-world CSV files.",
+              "durationInSeconds": 2100,
+              "type": "Video",
+              "isFreePreview": false
+            }
+          ]
+        },
+        {
+          "title": "Data Visualization",
+          "lessons": [
+            {
+              "title": "Matplotlib Basics",
+              "description": "Create line charts, bar charts, and scatter plots.",
+              "durationInSeconds": 980,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "Seaborn for Statistical Plots",
+              "description": "Beautiful statistical visualizations with Seaborn.",
+              "durationInSeconds": 1120,
+              "type": "Video",
+              "isFreePreview": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Machine Learning with Scikit-Learn",
+      "description": "Dive into machine learning with hands-on projects. Learn supervised and unsupervised learning, model evaluation, feature engineering, and deploy your first ML model. Uses Python and Scikit-learn throughout.",
+      "shortDescription": "Hands-on ML with Python",
+      "price": 69.99,
+      "discountPrice": null,
+      "level": "Intermediate",
+      "language": "English",
+      "subCategorySlug": "machine-learning",
+      "instructorEmail": "instructor@courseplatform.com",
+      "requirements": [
+        "Python basics",
+        "Basic statistics knowledge",
+        "Completed Python for Data Science or equivalent"
+      ],
+      "whatYouLearn": [
+        "Supervised learning algorithms",
+        "Unsupervised learning",
+        "Model evaluation and tuning",
+        "Deploy ML models"
+      ],
+      "sections": [
+        {
+          "title": "ML Fundamentals",
+          "lessons": [
+            {
+              "title": "What is Machine Learning?",
+              "description": "Types of ML and real-world applications.",
+              "durationInSeconds": 890,
+              "type": "Video",
+              "isFreePreview": true
+            },
+            {
+              "title": "The ML Workflow",
+              "description": "From data to deployed model — the full pipeline.",
+              "durationInSeconds": 1120,
+              "type": "Video",
+              "isFreePreview": true
+            },
+            {
+              "title": "Setting Up Scikit-Learn",
+              "description": "Install and configure your ML environment.",
+              "durationInSeconds": 540,
+              "type": "Video",
+              "isFreePreview": false
+            }
+          ]
+        },
+        {
+          "title": "Supervised Learning",
+          "lessons": [
+            {
+              "title": "Linear Regression",
+              "description": "Predict continuous values with linear regression.",
+              "durationInSeconds": 1780,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "Logistic Regression",
+              "description": "Binary classification with logistic regression.",
+              "durationInSeconds": 1560,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "Decision Trees and Random Forests",
+              "description": "Tree-based models for classification and regression.",
+              "durationInSeconds": 2100,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "Support Vector Machines",
+              "description": "SVM for classification problems.",
+              "durationInSeconds": 1340,
+              "type": "Video",
+              "isFreePreview": false
+            }
+          ]
+        },
+        {
+          "title": "Model Evaluation",
+          "lessons": [
+            {
+              "title": "Train-Test Split",
+              "description": "Properly evaluate your model performance.",
+              "durationInSeconds": 780,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "Cross Validation",
+              "description": "More robust model evaluation techniques.",
+              "durationInSeconds": 980,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "Confusion Matrix and Metrics",
+              "description": "Accuracy, precision, recall, F1-score explained.",
+              "durationInSeconds": 1120,
+              "type": "Video",
+              "isFreePreview": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Docker and Kubernetes Fundamentals",
+      "description": "Learn containerization with Docker and orchestration with Kubernetes. Build, ship, and run applications in containers. Deploy to a Kubernetes cluster and manage microservices at scale.",
+      "shortDescription": "Containers, Docker, and Kubernetes",
+      "price": 64.99,
+      "discountPrice": 49.99,
+      "level": "Intermediate",
+      "language": "English",
+      "subCategorySlug": "web-development",
+      "instructorEmail": "instructor@courseplatform.com",
+      "requirements": [
+        "Basic Linux command line",
+        "Understanding of web applications",
+        "A computer with 8GB+ RAM"
+      ],
+      "whatYouLearn": [
+        "Build and run Docker containers",
+        "Write Docker Compose files",
+        "Deploy to Kubernetes",
+        "Manage microservices"
+      ],
+      "sections": [
+        {
+          "title": "Docker Basics",
+          "lessons": [
+            {
+              "title": "What is Docker?",
+              "description": "Containers vs VMs and why Docker matters.",
+              "durationInSeconds": 780,
+              "type": "Video",
+              "isFreePreview": true
+            },
+            {
+              "title": "Installing Docker",
+              "description": "Setup Docker on Windows, Mac, and Linux.",
+              "durationInSeconds": 540,
+              "type": "Video",
+              "isFreePreview": true
+            },
+            {
+              "title": "Your First Container",
+              "description": "Pull an image and run your first container.",
+              "durationInSeconds": 890,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "Writing Dockerfiles",
+              "description": "Create custom Docker images for your apps.",
+              "durationInSeconds": 1340,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "Docker Volumes and Networks",
+              "description": "Persist data and connect containers.",
+              "durationInSeconds": 1120,
+              "type": "Video",
+              "isFreePreview": false
+            }
+          ]
+        },
+        {
+          "title": "Docker Compose",
+          "lessons": [
+            {
+              "title": "Introduction to Docker Compose",
+              "description": "Define multi-container apps with a single file.",
+              "durationInSeconds": 890,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "Compose a Full Stack App",
+              "description": "Run API, database, and frontend together.",
+              "durationInSeconds": 1890,
+              "type": "Video",
+              "isFreePreview": false
+            }
+          ]
+        },
+        {
+          "title": "Kubernetes",
+          "lessons": [
+            {
+              "title": "Kubernetes Architecture",
+              "description": "Nodes, pods, services, and deployments explained.",
+              "durationInSeconds": 1560,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "Deploying to Kubernetes",
+              "description": "Deploy your first app to a K8s cluster.",
+              "durationInSeconds": 2100,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "Scaling and Load Balancing",
+              "description": "Scale your app horizontally with Kubernetes.",
+              "durationInSeconds": 1340,
+              "type": "Video",
+              "isFreePreview": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Introduction to Programming — Free",
+      "description": "A completely free introduction to programming for absolute beginners. No prior experience needed. Learn the fundamental concepts of programming using simple examples and exercises.",
+      "shortDescription": "Free programming course for beginners",
+      "price": 0,
+      "discountPrice": null,
+      "level": "Beginner",
+      "language": "English",
+      "subCategorySlug": "web-development",
+      "instructorEmail": "instructor@courseplatform.com",
+      "requirements": [
+        "No experience needed",
+        "A computer with internet access"
+      ],
+      "whatYouLearn": [
+        "What is programming",
+        "Variables and data types",
+        "Conditions and loops",
+        "Functions and basic algorithms"
+      ],
+      "sections": [
+        {
+          "title": "Programming Concepts",
+          "lessons": [
+            {
+              "title": "What is Programming?",
+              "description": "Introduction to programming and how computers work.",
+              "durationInSeconds": 480,
+              "type": "Video",
+              "isFreePreview": true
+            },
+            {
+              "title": "Variables and Data Types",
+              "description": "Store and manipulate data in your programs.",
+              "durationInSeconds": 720,
+              "type": "Video",
+              "isFreePreview": true
+            },
+            {
+              "title": "Conditions",
+              "description": "Make decisions in your code with if/else.",
+              "durationInSeconds": 840,
+              "type": "Video",
+              "isFreePreview": true
+            }
+          ]
+        },
+        {
+          "title": "Loops and Functions",
+          "lessons": [
+            {
+              "title": "Loops",
+              "description": "Repeat actions with for and while loops.",
+              "durationInSeconds": 960,
+              "type": "Video",
+              "isFreePreview": true
+            },
+            {
+              "title": "Functions",
+              "description": "Write reusable blocks of code.",
+              "durationInSeconds": 1080,
+              "type": "Video",
+              "isFreePreview": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "SQL and Database Design",
+      "description": "Learn SQL from the ground up and master database design. Write complex queries, design normalized schemas, work with stored procedures, and optimize query performance.",
+      "shortDescription": "Master SQL and database design",
+      "price": 39.99,
+      "discountPrice": 29.99,
+      "level": "Beginner",
+      "language": "English",
+      "subCategorySlug": "data-analysis",
+      "instructorEmail": "instructor@courseplatform.com",
+      "requirements": [
+        "No prior database experience",
+        "Basic computer skills"
+      ],
+      "whatYouLearn": [
+        "Write SQL queries",
+        "Design normalized databases",
+        "Use JOINs and subqueries",
+        "Optimize query performance"
+      ],
+      "sections": [
+        {
+          "title": "SQL Basics",
+          "lessons": [
+            {
+              "title": "What is SQL?",
+              "description": "Relational databases and SQL overview.",
+              "durationInSeconds": 540,
+              "type": "Video",
+              "isFreePreview": true
+            },
+            {
+              "title": "SELECT Queries",
+              "description": "Retrieve data from tables with SELECT.",
+              "durationInSeconds": 890,
+              "type": "Video",
+              "isFreePreview": true
+            },
+            {
+              "title": "Filtering with WHERE",
+              "description": "Filter results using WHERE clauses.",
+              "durationInSeconds": 780,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "INSERT, UPDATE, DELETE",
+              "description": "Modify data in your database.",
+              "durationInSeconds": 1120,
+              "type": "Video",
+              "isFreePreview": false
+            }
+          ]
+        },
+        {
+          "title": "Advanced SQL",
+          "lessons": [
+            {
+              "title": "JOINs Explained",
+              "description": "INNER, LEFT, RIGHT, and FULL JOINs.",
+              "durationInSeconds": 1560,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "Subqueries",
+              "description": "Nest queries inside queries.",
+              "durationInSeconds": 980,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "Aggregate Functions",
+              "description": "COUNT, SUM, AVG, MIN, MAX with GROUP BY.",
+              "durationInSeconds": 1120,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "SQL Performance Quiz",
+              "description": "Test your advanced SQL knowledge.",
+              "durationInSeconds": 0,
+              "type": "Quiz",
+              "isFreePreview": false
+            }
+          ]
+        },
+        {
+          "title": "Database Design",
+          "lessons": [
+            {
+              "title": "Normalization",
+              "description": "1NF, 2NF, 3NF — design clean databases.",
+              "durationInSeconds": 1340,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "Indexes and Performance",
+              "description": "Speed up queries with proper indexing.",
+              "durationInSeconds": 1120,
+              "type": "Video",
+              "isFreePreview": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Entrepreneurship 101",
+      "description": "Start your entrepreneurial journey with this practical guide. Learn how to validate your business idea, build an MVP, find your first customers, and grow a sustainable business.",
+      "shortDescription": "From idea to business",
+      "price": 34.99,
+      "discountPrice": null,
+      "level": "Beginner",
+      "language": "English",
+      "subCategorySlug": "entrepreneurship",
+      "instructorEmail": "instructor@courseplatform.com",
+      "requirements": [
+        "No prior business experience needed",
+        "An entrepreneurial mindset"
+      ],
+      "whatYouLearn": [
+        "Validate your business idea",
+        "Build an MVP",
+        "Find your first customers",
+        "Create a business model"
+      ],
+      "sections": [
+        {
+          "title": "Finding Your Idea",
+          "lessons": [
+            {
+              "title": "Identifying Problems Worth Solving",
+              "description": "How to find business opportunities around you.",
+              "durationInSeconds": 1120,
+              "type": "Video",
+              "isFreePreview": true
+            },
+            {
+              "title": "Idea Validation Framework",
+              "description": "Validate your idea before building anything.",
+              "durationInSeconds": 1560,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "Competitor Analysis",
+              "description": "Understand the market landscape.",
+              "durationInSeconds": 890,
+              "type": "Video",
+              "isFreePreview": false
+            }
+          ]
+        },
+        {
+          "title": "Building Your MVP",
+          "lessons": [
+            {
+              "title": "What is an MVP?",
+              "description": "Minimum Viable Product explained with examples.",
+              "durationInSeconds": 780,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "Getting Your First Customers",
+              "description": "Strategies to acquire your first 10 customers.",
+              "durationInSeconds": 1340,
+              "type": "Video",
+              "isFreePreview": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Deep Learning with TensorFlow",
+      "description": "Go beyond traditional ML and dive into deep learning. Build neural networks from scratch, implement CNNs for image recognition, RNNs for sequence data, and deploy models to production.",
+      "shortDescription": "Neural networks and deep learning",
+      "price": 79.99,
+      "discountPrice": 64.99,
+      "level": "Advanced",
+      "language": "English",
+      "subCategorySlug": "deep-learning",
+      "instructorEmail": "instructor@courseplatform.com",
+      "requirements": [
+        "Python proficiency",
+        "Machine learning basics",
+        "Linear algebra fundamentals"
+      ],
+      "whatYouLearn": [
+        "Build neural networks with TensorFlow",
+        "Implement CNNs and RNNs",
+        "Train models on real datasets",
+        "Deploy deep learning models"
+      ],
+      "sections": [
+        {
+          "title": "Neural Network Basics",
+          "lessons": [
+            {
+              "title": "What are Neural Networks?",
+              "description": "Neurons, layers, and how networks learn.",
+              "durationInSeconds": 1340,
+              "type": "Video",
+              "isFreePreview": true
+            },
+            {
+              "title": "Activation Functions",
+              "description": "ReLU, Sigmoid, Softmax — when to use each.",
+              "durationInSeconds": 980,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "Backpropagation",
+              "description": "How neural networks actually learn.",
+              "durationInSeconds": 1560,
+              "type": "Video",
+              "isFreePreview": false
+            }
+          ]
+        },
+        {
+          "title": "TensorFlow and Keras",
+          "lessons": [
+            {
+              "title": "Setting Up TensorFlow",
+              "description": "Install TensorFlow and Keras.",
+              "durationInSeconds": 540,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "Building Your First Neural Network",
+              "description": "Sequential model with Keras step by step.",
+              "durationInSeconds": 1780,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "Training and Evaluation",
+              "description": "Train, validate, and evaluate your model.",
+              "durationInSeconds": 1340,
+              "type": "Video",
+              "isFreePreview": false
+            }
+          ]
+        },
+        {
+          "title": "Convolutional Neural Networks",
+          "lessons": [
+            {
+              "title": "CNN Architecture",
+              "description": "Convolution, pooling, and fully connected layers.",
+              "durationInSeconds": 1890,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "Image Classification Project",
+              "description": "Build a CNN that recognizes handwritten digits.",
+              "durationInSeconds": 2340,
+              "type": "Video",
+              "isFreePreview": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
