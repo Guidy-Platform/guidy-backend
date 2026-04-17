@@ -8,6 +8,7 @@ public class CourseCurriculumSpec : BaseSpecification<Course>
     public CourseCurriculumSpec(int courseId)
         : base(c => c.Id == courseId)
     {
+        AddInclude(c => c.Instructor);
         AddInclude("Sections");
         AddInclude("Sections.Lessons");
         AddInclude("Sections.Lessons.Resources");

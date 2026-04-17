@@ -4,6 +4,7 @@ using CoursePlatform.Application.Contracts.Persistence;
 using CoursePlatform.Application.Contracts.Services;
 using CoursePlatform.Application.Features.Curriculum.DTOs;
 using CoursePlatform.Application.Features.Curriculum.Specifications;
+using CoursePlatform.Application.Features.Enrollments.Specifications;
 using CoursePlatform.Domain.Entities;
 using CoursePlatform.Domain.Enums;
 using MediatR;
@@ -35,37 +36,47 @@ public class GetCourseCurriculumQueryHandler
                                .GetEntityWithSpecAsync(spec, ct)
             ?? throw new NotFoundException("Course", request.CourseId);
 
-        // تحديد مين يشوف إيه
         var isOwner = course.InstructorId == _currentUser.UserId;
         var isAdmin = _currentUser.Roles.Contains("Admin");
-        var showAll = isOwner || isAdmin || request.IncludeAllLessons;
 
-        // Public يشوف Published بس
+        // Check enrollment only for authenticated non-owners/non-admins
+        var isEnrolled = false;
+        if (_currentUser.IsAuthenticated && !isOwner && !isAdmin)
+        {
+            var enrollmentSpec = new EnrollmentByStudentAndCourseSpec(
+                _currentUser.UserId!.Value, request.CourseId);
+            isEnrolled = await _uow.Repository<Enrollment>()
+                                   .AnyAsync(enrollmentSpec, ct);
+        }
+
+        // Public → free preview only
+        // Enrolled → all lessons
+        // Instructor/Admin → all lessons
+        var showAll = isOwner || isAdmin || isEnrolled;
+
         if (!isOwner && !isAdmin &&
             course.Status != CourseStatus.Published)
             throw new NotFoundException("Course", request.CourseId);
 
-        var sections = course.Sections
+        var sectionDtos = course.Sections
             .OrderBy(s => s.Order)
-            .ToList();
-
-        var sectionDtos = sections.Select(section =>
-        {
-            var lessons = section.Lessons
-                .Where(l => showAll || l.IsFreePreview)  
-                .OrderBy(l => l.Order)
-                .ToList();
-
-            return new SectionDto
+            .Select(section =>
             {
-                Id = section.Id,
-                Title = section.Title,
-                Order = section.Order,
-                LessonCount = section.Lessons.Count, 
-                TotalSeconds = lessons.Sum(l => l.DurationInSeconds),
-                Lessons = _mapper.Map<IList<LessonDto>>(lessons)
-            };
-        }).ToList();
+                var lessons = section.Lessons
+                    .Where(l => showAll || l.IsFreePreview)
+                    .OrderBy(l => l.Order)
+                    .ToList();
+
+                return new SectionDto
+                {
+                    Id = section.Id,
+                    Title = section.Title,
+                    Order = section.Order,
+                    LessonCount = section.Lessons.Count,
+                    TotalSeconds = lessons.Sum(l => l.DurationInSeconds),
+                    Lessons = _mapper.Map<IList<LessonDto>>(lessons)
+                };
+            }).ToList();
 
         return new CourseCurriculumDto
         {

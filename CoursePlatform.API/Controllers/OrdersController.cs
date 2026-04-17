@@ -57,12 +57,12 @@ public class OrdersController : ControllerBase
         CancellationToken ct)
         => Ok(await _sender.Send(new GetMyOrdersQuery(), ct));
 
-    /// <summary>Get all my enrollments.</summary>
-    [HttpGet("my/enrollments")]
-    [ProducesResponseType(typeof(IReadOnlyList<EnrollmentDto>), StatusCodes.Status200OK)]
-    public async Task<ActionResult<IReadOnlyList<EnrollmentDto>>> GetMyEnrollments(
-        CancellationToken ct)
-        => Ok(await _sender.Send(new GetMyEnrollmentsQuery(), ct));
+    ///// <summary>Get all my enrollments.</summary>
+    //[HttpGet("my/enrollments")]
+    //[ProducesResponseType(typeof(IReadOnlyList<EnrollmentDto>), StatusCodes.Status200OK)]
+    //public async Task<ActionResult<IReadOnlyList<EnrollmentDto>>> GetMyEnrollments(
+    //    CancellationToken ct)
+    //    => Ok(await _sender.Send(new GetMyEnrollmentsQuery(), ct));
 }
 
 public record ApplyCouponRequest(string CouponCode);

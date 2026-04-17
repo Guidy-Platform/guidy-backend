@@ -39,6 +39,9 @@ public class AppDbContext
     public DbSet<Enrollment> Enrollments => Set<Enrollment>();
     public DbSet<Coupon> Coupons => Set<Coupon>();
 
+    // Progress Tracking
+    public DbSet<LessonProgress> LessonProgresses => Set<LessonProgress>();
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.AddInterceptors(_auditInterceptor);
