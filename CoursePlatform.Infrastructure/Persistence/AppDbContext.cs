@@ -43,7 +43,8 @@ public class AppDbContext
     public DbSet<LessonProgress> LessonProgresses => Set<LessonProgress>();
     // reviews and ratings
     public DbSet<Review> Reviews => Set<Review>();
-
+    // Certificate Management
+    public DbSet<Certificate> Certificates => Set<Certificate>();
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.AddInterceptors(_auditInterceptor);

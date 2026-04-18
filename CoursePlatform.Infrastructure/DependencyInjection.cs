@@ -90,6 +90,12 @@ public static class DependencyInjection
         // Payment
         services.AddScoped<IPaymentService, StripePaymentService>();
 
+        // Certificate generation
+        services.AddScoped<ICertificateService, PdfCertificateService>();
+
+
+        services.AddScoped<IUserRepository, UserRepository>();
+
         // Redis
         services.AddSingleton<IConnectionMultiplexer>(_ =>
             ConnectionMultiplexer.Connect(
@@ -98,10 +104,6 @@ public static class DependencyInjection
 
         // RabbitMQ
 
-
-        // في Infrastructure/DependencyInjection.cs
-
-        // Connection → Singleton (مرة واحدة طول عمر الـ app)
         services.AddSingleton<IConnection>(sp =>
         {
             var logger = sp.GetRequiredService<ILogger<IConnection>>();

@@ -6,13 +6,13 @@ namespace CoursePlatform.Infrastructure.Services;
 
 public class CurrentUserService : ICurrentUserService
 {
-    private readonly IHttpContextAccessor _httpContextAccessor;
+    private readonly IHttpContextAccessor _http;
 
-    public CurrentUserService(IHttpContextAccessor httpContextAccessor)
-        => _httpContextAccessor = httpContextAccessor;
+    public CurrentUserService(IHttpContextAccessor http)
+        => _http = http;
 
     private ClaimsPrincipal? User
-        => _httpContextAccessor.HttpContext?.User;
+        => _http.HttpContext?.User;
 
     public Guid? UserId
     {
@@ -32,4 +32,14 @@ public class CurrentUserService : ICurrentUserService
     public IEnumerable<string> Roles
         => User?.FindAll(ClaimTypes.Role).Select(c => c.Value)
            ?? Enumerable.Empty<string>();
+
+    public string BaseUrl
+    {
+        get
+        {
+            var req = _http.HttpContext?.Request;
+            if (req is null) return string.Empty;
+            return $"{req.Scheme}://{req.Host}";
+        }
+    }
 }
