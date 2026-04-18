@@ -19,6 +19,8 @@ public class Course : AuditableEntity, ISoftDelete
     public string? Requirements { get; set; }  // JSON array as string
     public string? WhatYouLearn { get; set; }  // JSON array as string
     public string? RejectionReason { get; set; }  // Admin rejection note
+    public double AverageRating { get; set; } = 0;
+    public int TotalRatings { get; set; } = 0;
 
     // FK
     public Guid InstructorId { get; set; }
@@ -35,5 +37,5 @@ public class Course : AuditableEntity, ISoftDelete
 
 
     public ICollection<Section> Sections { get; set; } = new List<Section>();
-    //public ICollection<Enrollment> Enrollments { get; set; } = new List<Enrollment>();
+    public ICollection<Enrollment> Enrollments { get; set; } = new List<Enrollment>();
 }

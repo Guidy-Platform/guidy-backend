@@ -41,6 +41,8 @@ public class AppDbContext
 
     // Progress Tracking
     public DbSet<LessonProgress> LessonProgresses => Set<LessonProgress>();
+    // reviews and ratings
+    public DbSet<Review> Reviews => Set<Review>();
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
