@@ -6,6 +6,7 @@ using CoursePlatform.Application.Features.Reviews.DTOs;
 using CoursePlatform.Application.Features.Reviews.Helpers;
 using CoursePlatform.Application.Features.Reviews.Specifications;
 using CoursePlatform.Domain.Entities;
+using CoursePlatform.Domain.Enums;
 using MediatR;
 
 namespace CoursePlatform.Application.Features.Reviews.Commands.CreateReview;
@@ -15,13 +16,17 @@ public class CreateReviewCommandHandler
 {
     private readonly IUnitOfWork _uow;
     private readonly ICurrentUserService _currentUser;
+    private readonly INotificationService _notificationService;
 
     public CreateReviewCommandHandler(
         IUnitOfWork uow,
-        ICurrentUserService currentUser)
+        ICurrentUserService currentUser
+,
+        INotificationService notificationService)
     {
         _uow = uow;
         _currentUser = currentUser;
+        _notificationService = notificationService;
     }
 
     public async Task<ReviewDto> Handle(
@@ -29,6 +34,12 @@ public class CreateReviewCommandHandler
     {
         var studentId = _currentUser.UserId
             ?? throw new UnauthorizedException();
+
+        var course = await _uow.Repository<Course>()
+                       .GetByIdAsync(request.CourseId, ct);
+
+        if (course is null)
+            throw new NotFoundException("Course not found.");
 
         // check if course enrollment exists
         var enrollmentSpec = new EnrollmentByStudentAndCourseSpec(
@@ -68,6 +79,14 @@ public class CreateReviewCommandHandler
 
 
         await _uow.CompleteAsync(ct);
+
+        await _notificationService.SendAsync(
+            userId: course.InstructorId,
+            title: "New Review Received",
+            message: $"A student rated your course '{course.Title}' {request.Rating}/5 stars.",
+            type: NotificationType.ReviewReceived,
+            actionUrl: $"/courses/{request.CourseId}/reviews");
+
         // fetch the created review with related data
         var spec = new ReviewByIdSpec(review.Id);
         var result = await _uow.Repository<Review>()

@@ -12,11 +12,13 @@ public class ApproveCourseCommandHandler
 {
     private readonly IUnitOfWork _uow;
     private readonly ICacheService _cache;
+    private readonly INotificationService _notificationService;
 
-    public ApproveCourseCommandHandler(IUnitOfWork uow, ICacheService cache)
+    public ApproveCourseCommandHandler(IUnitOfWork uow, ICacheService cache, INotificationService notificationService)
     {
         _uow = uow;
         _cache = cache;
+        _notificationService = notificationService;
     }
 
     public async Task<Unit> Handle(
@@ -34,6 +36,13 @@ public class ApproveCourseCommandHandler
 
         _uow.Repository<Course>().Update(course);
         await _uow.CompleteAsync(ct);
+
+        await _notificationService.SendAsync(
+            userId: course.InstructorId,
+            title: "Course Approved!",
+            message: $"Your course '{course.Title}' has been approved and is now published.",
+            type: NotificationType.CoursePublished,
+            actionUrl: $"/courses/{course.Id}");
 
         await _cache.RemoveByPrefixAsync("courses:published:", ct);
 

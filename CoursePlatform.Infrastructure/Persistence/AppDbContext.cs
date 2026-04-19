@@ -45,6 +45,8 @@ public class AppDbContext
     public DbSet<Review> Reviews => Set<Review>();
     // Certificate Management
     public DbSet<Certificate> Certificates => Set<Certificate>();
+    // Notifications
+    public DbSet<Notification> Notifications => Set<Notification>();
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.AddInterceptors(_auditInterceptor);

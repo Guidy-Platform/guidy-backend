@@ -7,6 +7,7 @@ using CoursePlatform.Application.Features.Curriculum.Specifications;
 using CoursePlatform.Application.Features.Enrollments.Specifications;
 using CoursePlatform.Application.Features.Progress.Specifications;
 using CoursePlatform.Domain.Entities;
+using CoursePlatform.Domain.Enums;
 using MediatR;
 
 namespace CoursePlatform.Application.Features.Certificates.Commands.IssueCertificate;
@@ -17,15 +18,18 @@ public class IssueCertificateCommandHandler
     private readonly IUnitOfWork _uow;
     private readonly ICurrentUserService _currentUser;
     private readonly IUserRepository _userRepo;   
+    private readonly INotificationService _notificationService;
 
     public IssueCertificateCommandHandler(
         IUnitOfWork uow,
         ICurrentUserService currentUser,
-        IUserRepository userRepo)
+        IUserRepository userRepo,
+        INotificationService notificationService)
     {
         _uow = uow;
         _currentUser = currentUser;
         _userRepo = userRepo;
+        _notificationService = notificationService;
     }
 
     public async Task<CertificateDto> Handle(
@@ -90,6 +94,15 @@ public class IssueCertificateCommandHandler
 
         await _uow.Repository<Certificate>().AddAsync(certificate, ct);
         await _uow.CompleteAsync(ct);
+
+        // في IssueCertificateCommandHandler — بعد CompleteAsync
+
+        await _notificationService.SendAsync(
+            userId: studentId,
+            title: "Certificate Issued!",
+            message: $"Congratulations! Your certificate for '{course.Title}' is ready.",
+            type: NotificationType.CertificateIssued,
+            actionUrl: $"/certificates/{certificate.Id}");
 
         return MapToDto(certificate, _currentUser.BaseUrl);
     }

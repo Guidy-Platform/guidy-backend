@@ -20,6 +20,7 @@ out/
 
 ## ASP.NET Core configs
 appsettings.Development.json
+appsettings.Production.json
 secrets.json
 .env
 

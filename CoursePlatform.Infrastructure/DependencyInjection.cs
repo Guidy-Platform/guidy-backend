@@ -30,6 +30,10 @@ public static class DependencyInjection
         services.AddDbContext<AppDbContext>(opts =>
             opts.UseSqlServer(config.GetConnectionString("DefaultConnection")));
 
+        // For PostgreSQL Deployment:
+        //services.AddDbContext<AppDbContext>(opts =>
+        //         opts.UseNpgsql(config.GetConnectionString("DefaultConnection")));
+
         // Identity — Guid PK
         services.AddIdentity<AppUser, IdentityRole<Guid>>(opts =>
         {
@@ -95,6 +99,10 @@ public static class DependencyInjection
 
 
         services.AddScoped<IUserRepository, UserRepository>();
+
+        // Notification system
+        services.AddScoped<INotificationService, NotificationService>();
+        services.AddHostedService<NotificationConsumer>();
 
         // Redis
         services.AddSingleton<IConnectionMultiplexer>(_ =>
