@@ -22,6 +22,9 @@ public class AppUser : IdentityUser<Guid>, ISoftDelete
     // Computed 
     public string FullName => $"{FirstName} {LastName}".Trim();
 
+    public bool IsBanned { get; set; } = false;
+    public string? BanReason { get; set; }       
+
     // Navigation properties fill it with each feature
     // public ICollection<Course> Courses { get; set; } = [];
     // public ICollection<Enrollment> Enrollments { get; set; } = [];
