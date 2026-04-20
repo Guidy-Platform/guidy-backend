@@ -126,8 +126,16 @@ public static class DependencyInjection
             var configuration = config.GetConnectionString("Redis");
 
             var options = ConfigurationOptions.Parse(configuration!, true);
-            options.Ssl = true;
-            options.AbortOnConnectFail = false;
+            if (env.IsDevelopment())
+            {
+                options.Ssl = false;
+                options.AbortOnConnectFail = false;
+            }
+            else
+            {
+                options.Ssl = true;
+                options.AbortOnConnectFail = false;
+            }
 
             return ConnectionMultiplexer.Connect(options);
         });
