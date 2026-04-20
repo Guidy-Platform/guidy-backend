@@ -105,9 +105,17 @@ public static class DependencyInjection
         services.AddHostedService<NotificationConsumer>();
 
         // Redis
-        services.AddSingleton<IConnectionMultiplexer>(_ =>
-            ConnectionMultiplexer.Connect(
-                config.GetConnectionString("Redis")!));
+        services.AddSingleton<IConnectionMultiplexer>(sp =>
+        {
+            var configuration = config.GetConnectionString("Redis");
+
+            var options = ConfigurationOptions.Parse(configuration!, true);
+            options.Ssl = true;
+            options.AbortOnConnectFail = false;
+
+            return ConnectionMultiplexer.Connect(options);
+        });
+
         services.AddScoped<ICacheService, RedisCacheService>();
 
         // RabbitMQ
@@ -122,7 +130,16 @@ public static class DependencyInjection
                     HostName = config["RabbitMQ:Host"] ?? "localhost",
                     UserName = config["RabbitMQ:Username"] ?? "guest",
                     Password = config["RabbitMQ:Password"] ?? "guest",
-                    AutomaticRecoveryEnabled = true,   // ← بيعمل reconnect تلقائي
+                    VirtualHost = config["RabbitMQ:VirtualHost"] ?? "/",
+                    Port = int.Parse(config["RabbitMQ:Port"] ?? "5671"),
+
+                    AutomaticRecoveryEnabled = true,
+
+                    Ssl = new SslOption
+                    {
+                        Enabled = true,
+                        ServerName = config["RabbitMQ:Host"]
+                    }
                 };
                 var conn = factory.CreateConnectionAsync().GetAwaiter().GetResult();
                 logger.LogInformation("RabbitMQ connected successfully.");
