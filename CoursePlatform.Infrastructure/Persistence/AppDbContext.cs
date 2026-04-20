@@ -47,6 +47,10 @@ public class AppDbContext
     public DbSet<Certificate> Certificates => Set<Certificate>();
     // Notifications
     public DbSet<Notification> Notifications => Set<Notification>();
+
+    // Instructor Payouts
+    public DbSet<Payout> Payouts => Set<Payout>();
+    public DbSet<InstructorWallet> InstructorWallets => Set<InstructorWallet>();
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.AddInterceptors(_auditInterceptor);

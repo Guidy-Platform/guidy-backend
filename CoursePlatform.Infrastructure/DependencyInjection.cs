@@ -7,6 +7,7 @@ using CoursePlatform.Infrastructure.Persistence.Repositories;
 using CoursePlatform.Infrastructure.Services;
 using CoursePlatform.Infrastructure.Services.Consumers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -16,6 +17,7 @@ using Microsoft.IdentityModel.Tokens;
 using RabbitMQ.Client;
 using StackExchange.Redis;
 using System.Text;
+using Microsoft.Extensions.Hosting;
 
 namespace CoursePlatform.Infrastructure;
 
@@ -23,7 +25,8 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddInfrastructureServices(
         this IServiceCollection services,
-        IConfiguration config)
+        IConfiguration config,
+        IWebHostEnvironment env)
     {
         // DbContext
         services.AddScoped<AuditInterceptor>();
@@ -103,6 +106,19 @@ public static class DependencyInjection
         // Notification system
         services.AddScoped<INotificationService, NotificationService>();
         services.AddHostedService<NotificationConsumer>();
+
+        // payout to instructors
+        if (env.IsDevelopment())
+        {
+            // استخدم الـ Mock في Development
+            services.AddScoped<IStripeConnectService, MockStripeConnectService>();
+        }
+        else
+        {
+            // الـ Real Stripe في Production
+            services.AddScoped<IStripeConnectService, StripeConnectService>();
+        }
+
 
         // Redis
         services.AddSingleton<IConnectionMultiplexer>(sp =>

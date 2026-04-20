@@ -7,10 +7,10 @@ namespace CoursePlatform.API.Extensions;
 public static class ApplicationServiceExtensions
 {
     public static IServiceCollection AddApplicationServices(
-        this IServiceCollection services, IConfiguration config)
+        this IServiceCollection services, IConfiguration config , IWebHostEnvironment env)
     {
         services.AddApplicationServices();          // Application DI
-        services.AddInfrastructureServices(config); // Infrastructure DI
+        services.AddInfrastructureServices(config, env); // Infrastructure DI
         return services;
     }
 }

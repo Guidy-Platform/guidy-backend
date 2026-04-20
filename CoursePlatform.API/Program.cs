@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Http.Features;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddApplicationServices(builder.Configuration);
+builder.Services.AddApplicationServices(builder.Configuration, builder.Environment);
 builder.Services.AddSwaggerWithJwt();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
