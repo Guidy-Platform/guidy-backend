@@ -119,6 +119,15 @@ public static class DependencyInjection
             services.AddScoped<IStripeConnectService, StripeConnectService>();
         }
 
+        if (env.IsDevelopment())
+            services.AddScoped<IStripeSubscriptionService,
+                MockStripeSubscriptionService>();
+        else
+            services.AddScoped<IStripeSubscriptionService,
+                StripeSubscriptionService>();
+
+        // Subscription management
+        services.AddScoped<IStripeSubscriptionService, StripeSubscriptionService>();
 
         // Redis
         services.AddSingleton<IConnectionMultiplexer>(sp =>

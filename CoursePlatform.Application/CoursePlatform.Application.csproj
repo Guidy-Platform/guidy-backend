@@ -50,6 +50,8 @@
 
   <ItemGroup>
     <Folder Include="Features\Enrollments\Commands\" />
+    <Folder Include="Features\Subscriptions\Queries\GetMySubscription - Copy %282%29\" />
+    <Folder Include="Features\Subscriptions\Queries\GetMySubscription - Copy %283%29\" />
   </ItemGroup>
 
 </Project>

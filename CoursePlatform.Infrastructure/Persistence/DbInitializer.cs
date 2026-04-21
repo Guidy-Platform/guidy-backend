@@ -40,7 +40,7 @@ public static class DbInitializer
             await SeedCategoriesAsync(context, logger);
             await SeedCouponsAsync(context, logger);
             await SeedCoursesAsync(context, userManager, logger);
-
+            await SeedSubscriptionPlansAsync(context, logger);
 
         }
         catch (Exception ex)
@@ -342,5 +342,40 @@ public static class DbInitializer
         logger.LogInformation(
             "Courses seeded: {Courses} courses, {Sections} sections, {Lessons} lessons.",
             totalCourses, totalSections, totalLessons);
+    }
+
+
+
+    private static async Task SeedSubscriptionPlansAsync(
+        AppDbContext context, ILogger logger)
+    {
+        if (await context.SubscriptionPlans.AnyAsync()) return;
+
+        context.SubscriptionPlans.AddRange(
+            new SubscriptionPlan
+            {
+                Name = "Monthly Plan",
+                Description = "Full access to all courses billed monthly.",
+                Price = 29.99m,
+                BillingInterval = BillingInterval.Monthly,
+                IsActive = true,
+                StripePriceId = "price_monthly_mock",
+                UnlimitedCourseAccess = true,
+                CertificateAccess = true
+            },
+            new SubscriptionPlan
+            {
+                Name = "Annual Plan",
+                Description = "Full access to all courses billed annually. Save 44%!",
+                Price = 199.99m,
+                BillingInterval = BillingInterval.Annual,
+                IsActive = true,
+                StripePriceId = "price_annual_mock",
+                UnlimitedCourseAccess = true,
+                CertificateAccess = true
+            });
+
+        await context.SaveChangesAsync();
+        logger.LogInformation("Subscription plans seeded.");
     }
 }

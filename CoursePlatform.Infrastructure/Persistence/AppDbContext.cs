@@ -51,6 +51,11 @@ public class AppDbContext
     // Instructor Payouts
     public DbSet<Payout> Payouts => Set<Payout>();
     public DbSet<InstructorWallet> InstructorWallets => Set<InstructorWallet>();
+
+    // Subscription Management
+    public DbSet<SubscriptionPlan> SubscriptionPlans => Set<SubscriptionPlan>();
+    public DbSet<UserSubscription> UserSubscriptions => Set<UserSubscription>();
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.AddInterceptors(_auditInterceptor);

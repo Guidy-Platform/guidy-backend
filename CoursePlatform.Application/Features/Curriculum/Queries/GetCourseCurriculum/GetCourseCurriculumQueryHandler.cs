@@ -5,6 +5,7 @@ using CoursePlatform.Application.Contracts.Services;
 using CoursePlatform.Application.Features.Curriculum.DTOs;
 using CoursePlatform.Application.Features.Curriculum.Specifications;
 using CoursePlatform.Application.Features.Enrollments.Specifications;
+using CoursePlatform.Application.Features.Subscriptions.Specifications;
 using CoursePlatform.Domain.Entities;
 using CoursePlatform.Domain.Enums;
 using MediatR;
@@ -49,10 +50,21 @@ public class GetCourseCurriculumQueryHandler
                                    .AnyAsync(enrollmentSpec, ct);
         }
 
+        
+        var isSubscribed = false;
+        if (_currentUser.IsAuthenticated && !isOwner && !isAdmin)
+        {
+            var subSpec = new ActiveSubscriptionByUserSpec(
+                _currentUser.UserId!.Value);
+            isSubscribed = await _uow.Repository<UserSubscription>()
+                                     .AnyAsync(subSpec, ct);
+        }
+
+        var showAll = isOwner || isAdmin || isEnrolled || isSubscribed;
+
         // Public → free preview only
         // Enrolled → all lessons
         // Instructor/Admin → all lessons
-        var showAll = isOwner || isAdmin || isEnrolled;
 
         if (!isOwner && !isAdmin &&
             course.Status != CourseStatus.Published)

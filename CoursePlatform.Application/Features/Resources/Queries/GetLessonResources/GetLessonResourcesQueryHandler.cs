@@ -3,6 +3,7 @@ using CoursePlatform.Application.Contracts.Persistence;
 using CoursePlatform.Application.Contracts.Services;
 using CoursePlatform.Application.Features.Resources.DTOs;
 using CoursePlatform.Application.Features.Resources.Specifications;
+using CoursePlatform.Application.Features.Subscriptions.Specifications;
 using CoursePlatform.Domain.Entities;
 using CoursePlatform.Domain.Enums;
 using MediatR;
@@ -42,14 +43,22 @@ public class GetLessonResourcesQueryHandler
             _currentUser.Roles.Contains("Instructor") ||
             _currentUser.Roles.Contains("Admin");
 
-        if (!isInstructorOrAdmin && !lesson.IsFreePreview)
+        var isSubscribed = false;
+        if (_currentUser.IsAuthenticated)
         {
-            // TODO: هنضيف enrollment check هنا في الـ Enrollment Module
-            // دلوقتي بنرجع empty list للـ unauthenticated users
-            if (!_currentUser.IsAuthenticated)
-                return [];
+            var subSpec = new ActiveSubscriptionByUserSpec(
+                _currentUser.UserId!.Value);
+            isSubscribed = await _uow.Repository<UserSubscription>()
+                                     .AnyAsync(subSpec, ct);
         }
 
+        if (!isInstructorOrAdmin && !lesson.IsFreePreview && !isSubscribed)
+        {
+            // TODO: enrollment check
+            if (!_currentUser.IsAuthenticated) return [];
+        }
+
+       
         var spec = new ResourcesByLessonSpec(request.LessonId);
         var resources = await _uow.Repository<Resource>()
                                   .GetAllWithSpecAsync(spec, ct);
