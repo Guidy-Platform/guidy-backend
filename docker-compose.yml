@@ -1,0 +1,63 @@
+version: "3.8"
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: CoursePlatform.API/Dockerfile
+
+    ports:
+      - "8081:8080"
+
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080
+
+      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=GuidyPlatform;User Id=sa;Password=Your@Password123;TrustServerCertificate=True
+      - ConnectionStrings__Redis=redis:6379
+
+      - Jwt__Key=your-super-secret-key-min-32-characters-long
+      - Jwt__Issuer=GuidyPlatform
+      - Jwt__Audience=GuidyPlatformUsers
+
+      - RabbitMQ__Host=rabbitmq
+      - RabbitMQ__Username=guest
+      - RabbitMQ__Password=guest
+
+    depends_on:
+      - sqlserver
+      - redis
+      - rabbitmq
+
+    volumes:
+      - uploads:/app/wwwroot/uploads
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver
+
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Your@Password123
+      - MSSQL_PID=Express
+
+    ports:
+      - "1433:1433"
+
+  redis:
+    image: redis:7-alpine
+    container_name: redis
+
+    ports:
+      - "6380:6379"
+
+  rabbitmq:
+    image: rabbitmq:3.12-management-alpine
+    container_name: rabbitmq
+
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+volumes:
+  uploads:
