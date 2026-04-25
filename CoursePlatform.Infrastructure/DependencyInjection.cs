@@ -28,14 +28,27 @@ public static class DependencyInjection
         IConfiguration config,
         IWebHostEnvironment env)
     {
-        // DbContext
-        services.AddScoped<AuditInterceptor>();
-        services.AddDbContext<AppDbContext>(opts =>
-            opts.UseSqlServer(config.GetConnectionString("DefaultConnection")));
 
-        // For PostgreSQL Deployment:
-        //services.AddDbContext<AppDbContext>(opts =>
-        //         opts.UseNpgsql(config.GetConnectionString("DefaultConnection")));
+
+        services.AddScoped<AuditInterceptor>();
+        // DbContext
+
+        services.AddDbContext<AppDbContext>((sp, opts) =>
+        {
+            var interceptor = sp.GetRequiredService<AuditInterceptor>();
+
+            opts.UseSqlServer(
+                config.GetConnectionString("DefaultConnection"),
+                sqlOptions =>
+                {
+                    sqlOptions.EnableRetryOnFailure(
+                        maxRetryCount: 5,
+                        maxRetryDelay: TimeSpan.FromSeconds(10),
+                        errorNumbersToAdd: null);
+                });
+
+            opts.AddInterceptors(interceptor);
+        });
 
         // Identity — Guid PK
         services.AddIdentity<AppUser, IdentityRole<Guid>>(opts =>

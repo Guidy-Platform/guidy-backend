@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Http.Features;
 var builder = WebApplication.CreateBuilder(args);
 
 // ─── Kestrel for Container ────────────────────────────────────────
-builder.WebHost.UseUrls("http://+:8080");
 
 // ─── CORS ─────────────────────────────────────────────────────────
 builder.Services.AddCors(options =>
@@ -90,6 +89,13 @@ app.MapGet("/health", () => Results.Ok(new
     version = "1.0.0",
     time    = DateTime.UtcNow
 }));
-await app.InitializeDatabaseAsync();
+try
+{
+    await app.InitializeDatabaseAsync();
+}
+catch (Exception ex)
+{
+    Console.WriteLine("DB init failed: " + ex.Message);
+}
 
 app.Run();
