@@ -51,6 +51,10 @@ public class AppDbContext
     // Instructor Payouts
     public DbSet<Payout> Payouts => Set<Payout>();
     public DbSet<InstructorWallet> InstructorWallets => Set<InstructorWallet>();
+
+    // wishlist
+    public DbSet<WishlistItem> WishlistItems => Set<WishlistItem>();
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.AddInterceptors(_auditInterceptor);
