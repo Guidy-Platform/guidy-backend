@@ -58,7 +58,7 @@ var app = builder.Build();
 
 app.Use(async (context, next) =>
 {
-    context.Request.EnableBuffering();  // ← بيخلي الـ stream seekable
+    context.Request.EnableBuffering();  //  stream seekable
     await next();
 });
 
