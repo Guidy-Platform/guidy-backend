@@ -89,8 +89,9 @@ app.MapGet("/health", () => Results.Ok(new
     version = "1.0.0",
     time    = DateTime.UtcNow
 }));
-
+Console.WriteLine("Test DB INIT CALLED");
 await app.InitializeDatabaseAsync();
+Console.WriteLine("Test DB INIT CALLED");
 //try
 //{
 //    await app.InitializeDatabaseAsync();
