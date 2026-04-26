@@ -214,43 +214,96 @@ public class AuthService : IAuthService
                 string.Join(", ", result.Errors.Select(e => e.Description)));
     }
 
+
+
     public async Task<AuthResponseDto> GoogleLoginAsync(
-        string idToken, CancellationToken ct = default)
+    string idToken, CancellationToken ct = default)
     {
-        var payload = await _googleAuth.VerifyTokenAsync(idToken)
+        // verify token and get user info from Google
+        var googleUser = await _googleAuth.VerifyIdTokenAsync(idToken, ct)
             ?? throw new UnauthorizedException("Invalid Google token.");
 
-        var user = await _userManager.FindByEmailAsync(payload.Email);
+        // check if email is present and verified by Google
+        if (string.IsNullOrEmpty(googleUser.Email))
+            throw new BadRequestException(
+                "Google account does not have a verified email. " +
+                "Please use an account with a verified email address.");
+
+        // get or create user
+        var user = await _userManager.FindByEmailAsync(googleUser.Email);
 
         if (user is null)
         {
+            // Split FullName for FirstName and LastName
+            var nameParts = googleUser.FullName?.Split(' ', 2)
+                            ?? ["", ""];
+            var firstName = nameParts[0];
+            var lastName = nameParts.Length > 1 ? nameParts[1] : string.Empty;
+
             user = new AppUser
             {
-                Email = payload.Email,
-                UserName = payload.Email,
-                FirstName = payload.GivenName,
-                LastName = payload.FamilyName,
-                EmailConfirmed = true,
+                Email = googleUser.Email,
+                UserName = googleUser.Email,
+                FirstName = googleUser.FirstName,   
+                LastName = googleUser.LastName,
+                ProfilePictureUrl = googleUser.PictureUrl,
+                EmailConfirmed = true,   // ← Google verified الـ email
+                CreatedAt = DateTime.UtcNow
             };
 
             var result = await _userManager.CreateAsync(user);
             if (!result.Succeeded)
                 throw new BadRequestException(
-                    string.Join(", ", result.Errors.Select(e => e.Description)));
+                    string.Join(", ",
+                        result.Errors.Select(e => e.Description)));
 
             await _userManager.AddToRoleAsync(user, "Student");
         }
+        else
+        {
+            var needsUpdate = false;
 
+            if (string.IsNullOrEmpty(user.FirstName) &&
+                !string.IsNullOrEmpty(googleUser.FirstName))
+            {
+                user.FirstName = googleUser.FirstName;
+                needsUpdate = true;
+            }
+
+            if (string.IsNullOrEmpty(user.LastName) &&
+                !string.IsNullOrEmpty(googleUser.LastName))
+            {
+                user.LastName = googleUser.LastName;
+                needsUpdate = true;
+            }
+
+            if (!string.IsNullOrEmpty(googleUser.PictureUrl) &&
+                user.ProfilePictureUrl != googleUser.PictureUrl)
+            {
+                user.ProfilePictureUrl = googleUser.PictureUrl;
+                needsUpdate = true;
+            }
+
+            if (needsUpdate)
+                await _userManager.UpdateAsync(user);
+        }
+        // check IsDeleted and IsBanned flags  
         if (user.IsDeleted)
             throw new UnauthorizedException(
                 "This account has been deactivated.");
 
+        if (user.IsBanned)
+            throw new UnauthorizedException(
+                $"This account has been suspended. Reason: {user.BanReason}");
+
+        // 5. Generate Tokens
         var accessToken = await _tokenService.CreateAccessTokenAsync(user);
         var refreshToken = await _tokenService.CreateRefreshTokenAsync(user);
         var roles = await _userManager.GetRolesAsync(user);
 
         return MapToDto(user, accessToken, refreshToken.Token, roles);
     }
+
 
     public async Task RevokeTokenAsync(
         Guid userId, string refreshToken,
