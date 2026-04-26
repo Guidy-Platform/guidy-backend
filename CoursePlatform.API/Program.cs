@@ -89,13 +89,15 @@ app.MapGet("/health", () => Results.Ok(new
     version = "1.0.0",
     time    = DateTime.UtcNow
 }));
-try
-{
-    await app.InitializeDatabaseAsync();
-}
-catch (Exception ex)
-{
-    Console.WriteLine("DB init failed: " + ex.Message);
-}
+
+await app.InitializeDatabaseAsync();
+//try
+//{
+//    await app.InitializeDatabaseAsync();
+//}
+//catch (Exception ex)
+//{
+//    Console.WriteLine("DB init failed: " + ex.Message);
+//}
 
 app.Run();
