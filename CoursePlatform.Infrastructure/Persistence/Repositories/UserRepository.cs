@@ -33,16 +33,28 @@ public class UserRepository : IUserRepository
         string? search = null,
         bool? isBanned = null,
         CancellationToken ct = default)
-        => await _context.Users
-            .Where(u =>
-                !u.IsDeleted &&
-                (string.IsNullOrEmpty(search) ||
-                    u.FullName.ToLower().Contains(search.ToLower()) ||
-                    u.Email!.ToLower().Contains(search.ToLower())) &&
-                (!isBanned.HasValue || u.IsBanned == isBanned.Value))
+    {
+        var query = _context.Users.Where(u => !u.IsDeleted);
+
+        if (!string.IsNullOrWhiteSpace(search))
+        {
+            search = search.ToLower();
+
+            query = query.Where(u =>
+                u.FirstName.ToLower().Contains(search) ||
+                u.LastName.ToLower().Contains(search) ||
+                u.Email!.ToLower().Contains(search));
+        }
+
+        if (isBanned.HasValue)
+        {
+            query = query.Where(u => u.IsBanned == isBanned.Value);
+        }
+
+        return await query
             .OrderByDescending(u => u.CreatedAt)
             .ToListAsync(ct);
-
+    }
     public async Task<IReadOnlyList<string>> GetRolesAsync(
         AppUser user, CancellationToken ct = default)
         => (await _userManager.GetRolesAsync(user)).ToList();

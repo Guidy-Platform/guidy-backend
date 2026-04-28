@@ -1,5 +1,6 @@
 ﻿using CoursePlatform.Application.Features.Admin.Commands.BanUser;
 using CoursePlatform.Application.Features.Admin.Commands.ChangeUserRole;
+using CoursePlatform.Application.Features.Admin.Commands.CreateUserByAdmin;
 using CoursePlatform.Application.Features.Admin.Commands.UnbanUser;
 using CoursePlatform.Application.Features.Admin.DTOs;
 using CoursePlatform.Application.Features.Admin.Queries.GetAllCoursesAdmin;
@@ -107,8 +108,34 @@ public class AdminController : ControllerBase
         CancellationToken ct = default)
         => Ok(await _sender.Send(
             new GetAllCoursesAdminQuery(status, search), ct));
+
+
+
+    [HttpPost("users")]
+    public async Task<IActionResult> CreateUser(
+    [FromBody] CreateUserRequest request,
+    CancellationToken ct)
+    {
+        var id = await _sender.Send(
+            new CreateUserByAdminCommand(
+                request.Email,
+                request.FirstName,
+                request.LastName,
+                request.Role,
+                request.Password), ct);
+
+        return Ok(new { id, message = "User created successfully" });
+    }
 }
 
 // ─── Request Models ────────────────────────────────────────────────
 public record BanUserRequest(string Reason);
 public record ChangeRoleRequest(string NewRole);
+
+public record CreateUserRequest(
+    string Email,
+    string FirstName,
+    string LastName,
+    string Role,
+    string Password
+);
