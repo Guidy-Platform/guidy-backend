@@ -55,6 +55,12 @@ public class AppDbContext
     // wishlist
     public DbSet<WishlistItem> WishlistItems => Set<WishlistItem>();
 
+
+    // settings and contact us
+
+    public DbSet<PlatformSetting> PlatformSettings => Set<PlatformSetting>();
+    public DbSet<ContactMessage> ContactMessages => Set<ContactMessage>();
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.AddInterceptors(_auditInterceptor);
