@@ -40,6 +40,7 @@ public static class DbInitializer
             await SeedCategoriesAsync(context, logger);
             await SeedCouponsAsync(context, logger);
             await SeedCoursesAsync(context, userManager, logger);
+            await SeedPlatformSettingsAsync(context, logger);
 
 
         }
@@ -342,5 +343,50 @@ public static class DbInitializer
         logger.LogInformation(
             "Courses seeded: {Courses} courses, {Sections} sections, {Lessons} lessons.",
             totalCourses, totalSections, totalLessons);
+    }
+
+
+    private static async Task SeedPlatformSettingsAsync(
+        AppDbContext context, ILogger logger)
+    {
+        if (await context.PlatformSettings.AnyAsync()) return;
+
+        var settings = new List<PlatformSetting>
+    {
+        // General
+        new() { Key = "platform.name",        Value = "Guidy Platform",              Group = "general" },
+        new() { Key = "platform.description", Value = "Learn from the best instructors", Group = "general" },
+        new() { Key = "platform.logoUrl",     Value = "",                            Group = "general" },
+        new() { Key = "platform.faviconUrl",  Value = "",                            Group = "general" },
+        new() { Key = "platform.currency",    Value = "USD",                         Group = "general" },
+        new() { Key = "platform.language",    Value = "en",                          Group = "general" },
+
+        // Contact
+        new() { Key = "contact.email",        Value = "support@guidy.com",           Group = "contact" },
+        new() { Key = "contact.phone",        Value = "",                            Group = "contact" },
+        new() { Key = "contact.address",      Value = "",                            Group = "contact" },
+        new() { Key = "contact.workingHours", Value = "Mon-Fri 9AM-5PM",             Group = "contact" },
+
+        // Social
+        new() { Key = "social.facebook",      Value = "",                            Group = "social" },
+        new() { Key = "social.twitter",       Value = "",                            Group = "social" },
+        new() { Key = "social.instagram",     Value = "",                            Group = "social" },
+        new() { Key = "social.linkedin",      Value = "",                            Group = "social" },
+        new() { Key = "social.youtube",       Value = "",                            Group = "social" },
+
+        // SEO
+        new() { Key = "seo.metaTitle",        Value = "Guidy — Learn Online",        Group = "seo" },
+        new() { Key = "seo.metaDescription",  Value = "Best online learning platform", Group = "seo" },
+
+        // Features
+        new() { Key = "features.allowRegister",     Value = "true",  Group = "features" },
+        new() { Key = "features.maintenanceMode",   Value = "false", Group = "features" },
+        new() { Key = "features.allowGoogleLogin",  Value = "true",  Group = "features" },
+        new() { Key = "features.allowSubscription", Value = "true",  Group = "features" },
+    };
+
+        await context.PlatformSettings.AddRangeAsync(settings);
+        await context.SaveChangesAsync();
+        logger.LogInformation("Platform settings seeded.");
     }
 }
