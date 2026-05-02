@@ -19,4 +19,5 @@ public class SubCategory : AuditableEntity, ISoftDelete
 
     // Navigation
     public Category Category { get; set; } = null!;
+    public ICollection<Course> Courses { get; set; } = [];
 }

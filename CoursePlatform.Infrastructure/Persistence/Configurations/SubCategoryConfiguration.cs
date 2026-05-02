@@ -17,16 +17,19 @@ public class SubCategoryConfiguration : IEntityTypeConfiguration<SubCategory>
         builder.Property(s => s.Slug)
             .IsRequired()
             .HasMaxLength(150);
-        builder.HasIndex(s => new { s.CategoryId, s.Slug })
-            .IsUnique()
-            .HasFilter("[IsDeleted] = 0");
+
         builder.Property(s => s.Description)
             .HasMaxLength(500);
 
-        // Slug unique in same Category
         builder.HasIndex(s => new { s.CategoryId, s.Slug })
-            .IsUnique();
+            .IsUnique()
+            .HasFilter("[IsDeleted] = 0");
 
         builder.HasIndex(s => s.IsDeleted);
+
+        builder.HasMany(s => s.Courses)
+            .WithOne(c => c.SubCategory)
+            .HasForeignKey(c => c.SubCategoryId)
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }

@@ -8,6 +8,7 @@ public class AllCategoriesWithSubCategoriesSpec : BaseSpecification<Category>
     public AllCategoriesWithSubCategoriesSpec()
     {
         AddInclude(c => c.SubCategories);
+        AddInclude("SubCategories.Courses");
         AddOrderBy(c => c.Order);
         ApplyNoTracking();
     }
