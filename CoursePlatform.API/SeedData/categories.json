@@ -2,54 +2,178 @@
   "categories": [
     {
       "name": "Development",
-      "description": "Software development courses",
+      "slug": "development",
+      "description": "Learn software development, programming, and modern engineering practices.",
+      "iconUrl": "https://cdn-icons-png.flaticon.com/512/2721/2721297.png",
       "order": 1,
       "subCategories": [
         {
           "name": "Web Development",
+          "slug": "web-development",
+          "description": "Frontend, backend, and full-stack web development.",
           "order": 1
         },
         {
           "name": "Mobile Development",
+          "slug": "mobile-development",
+          "description": "Build iOS, Android, and cross-platform mobile apps.",
           "order": 2
         },
         {
           "name": "Game Development",
+          "slug": "game-development",
+          "description": "Create games using Unity, Unreal Engine, and more.",
           "order": 3
+        },
+        {
+          "name": "Software Engineering",
+          "slug": "software-engineering",
+          "description": "System design, clean architecture, and best practices.",
+          "order": 4
+        },
+        {
+          "name": "DevOps",
+          "slug": "devops",
+          "description": "CI/CD, Docker, Kubernetes, and cloud infrastructure.",
+          "order": 5
+        },
+        {
+          "name": "Backend Development",
+          "slug": "backend-development",
+          "description": "APIs, databases, and server-side development.",
+          "order": 6
+        },
+        {
+          "name": "Frontend Development",
+          "slug": "frontend-development",
+          "description": "Modern UI development with React, Angular, and Vue.",
+          "order": 7
         }
       ]
     },
     {
       "name": "Data Science",
-      "description": "Data, AI and Machine Learning",
+      "slug": "data-science",
+      "description": "Master data analysis, machine learning, and AI techniques.",
+      "iconUrl": "https://cdn-icons-png.flaticon.com/512/4149/4149676.png",
       "order": 2,
       "subCategories": [
         {
           "name": "Machine Learning",
+          "slug": "machine-learning",
+          "description": "Supervised and unsupervised learning techniques.",
           "order": 1
         },
         {
           "name": "Deep Learning",
+          "slug": "deep-learning",
+          "description": "Neural networks, CNNs, RNNs, and transformers.",
           "order": 2
         },
         {
           "name": "Data Analysis",
+          "slug": "data-analysis",
+          "description": "Analyze data using Python, Pandas, and SQL.",
           "order": 3
+        },
+        {
+          "name": "Data Visualization",
+          "slug": "data-visualization",
+          "description": "Build dashboards and visual reports.",
+          "order": 4
+        },
+        {
+          "name": "Big Data",
+          "slug": "big-data",
+          "description": "Work with large-scale data using Spark and Hadoop.",
+          "order": 5
         }
       ]
     },
     {
       "name": "Business",
-      "description": "Business and entrepreneurship",
+      "slug": "business",
+      "description": "Learn business strategy, entrepreneurship, and management skills.",
+      "iconUrl": "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
       "order": 3,
       "subCategories": [
         {
           "name": "Entrepreneurship",
+          "slug": "entrepreneurship",
+          "description": "Build and scale startups.",
           "order": 1
         },
         {
           "name": "Management",
+          "slug": "management",
+          "description": "Project, product, and team management.",
           "order": 2
+        },
+        {
+          "name": "Marketing",
+          "slug": "marketing",
+          "description": "Digital marketing, branding, and growth strategies.",
+          "order": 3
+        },
+        {
+          "name": "Finance",
+          "slug": "finance",
+          "description": "Business finance, accounting, and investing.",
+          "order": 4
+        }
+      ]
+    },
+    {
+      "name": "Design",
+      "slug": "design",
+      "description": "Learn UI/UX design, graphics, and creative skills.",
+      "iconUrl": "https://cdn-icons-png.flaticon.com/512/1055/1055687.png",
+      "order": 4,
+      "subCategories": [
+        {
+          "name": "UI/UX Design",
+          "slug": "ui-ux-design",
+          "description": "Design intuitive user interfaces and experiences.",
+          "order": 1
+        },
+        {
+          "name": "Graphic Design",
+          "slug": "graphic-design",
+          "description": "Create visual content and branding materials.",
+          "order": 2
+        },
+        {
+          "name": "Motion Design",
+          "slug": "motion-design",
+          "description": "Animation and motion graphics design.",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "name": "Language",
+      "slug": "language",
+      "description": "Learn new languages for communication and career growth.",
+      "iconUrl": "https://cdn-icons-png.flaticon.com/512/484/484582.png",
+      "order": 5,
+      "subCategories": [
+        {
+          "name": "English",
+          "slug": "english",
+          "description": "Improve your English speaking and writing skills.",
+          "order": 1
+        },
+        {
+          "name": "Arabic",
+          "slug": "arabic",
+          "description": "Learn Arabic language from beginner to advanced.",
+          "order": 2
+        },
+        {
+          "name": "German",
+          "slug": "german",
+          "description": "Learn German for study and work opportunities.",
+          "order": 3
         }
       ]
     }

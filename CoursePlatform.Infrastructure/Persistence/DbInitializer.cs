@@ -75,8 +75,12 @@ public static class DbInitializer
                 Name = name,
                 Slug = slug,
                 Description = c.TryGetProperty("description", out var d)
-                                ? d.GetString() : null,
+                     ? d.GetString() : null,
                 Order = c.GetProperty("order").GetInt32(),
+
+                IconUrl = c.TryGetProperty("iconUrl", out var ic)
+                 ? ic.GetString()
+                 : null
             };
 
             foreach (var s in c.GetProperty("subCategories").EnumerateArray())
@@ -100,7 +104,6 @@ public static class DbInitializer
         UserManager<AppUser> userManager,
         ILogger logger)
     {
-        // قراءة الـ JSON file
         var jsonPath = Path.Combine(
             AppContext.BaseDirectory, "SeedData", "users.json");
 
@@ -293,6 +296,9 @@ public static class DbInitializer
                 Level = level,
                 Status = CourseStatus.Published,
                 Language = c.GetProperty("language").GetString()!,
+                ThumbnailUrl = c.TryGetProperty("thumbnailUrl", out var tu)
+                ? tu.GetString()
+                : null,
                 SubCategoryId = subCategory.Id,
                 InstructorId = instructor.Id,
                 Requirements = JsonSerializer.Serialize(requirements),
@@ -321,6 +327,11 @@ public static class DbInitializer
                         Title = l.GetProperty("title").GetString()!,
                         Description = l.TryGetProperty("description", out var desc)
                                             ? desc.GetString() : null,
+
+                        VideoUrl = l.TryGetProperty("videoUrl", out var vu) &&
+                                            vu.ValueKind != JsonValueKind.Null
+                                            ? vu.GetString()
+                                            : null,
                         DurationInSeconds = l.GetProperty("durationInSeconds").GetInt32(),
                         Type = type,
                         IsFreePreview = l.GetProperty("isFreePreview").GetBoolean(),
@@ -345,47 +356,30 @@ public static class DbInitializer
             totalCourses, totalSections, totalLessons);
     }
 
-
     private static async Task SeedPlatformSettingsAsync(
         AppDbContext context, ILogger logger)
     {
         if (await context.PlatformSettings.AnyAsync()) return;
 
-        var settings = new List<PlatformSetting>
-    {
-        // General
-        new() { Key = "platform.name",        Value = "Guidy Platform",              Group = "general" },
-        new() { Key = "platform.description", Value = "Learn from the best instructors", Group = "general" },
-        new() { Key = "platform.logoUrl",     Value = "",                            Group = "general" },
-        new() { Key = "platform.faviconUrl",  Value = "",                            Group = "general" },
-        new() { Key = "platform.currency",    Value = "USD",                         Group = "general" },
-        new() { Key = "platform.language",    Value = "en",                          Group = "general" },
+        var jsonPath = Path.Combine(
+            AppContext.BaseDirectory, "SeedData", "settings.json");
 
-        // Contact
-        new() { Key = "contact.email",        Value = "support@guidy.com",           Group = "contact" },
-        new() { Key = "contact.phone",        Value = "",                            Group = "contact" },
-        new() { Key = "contact.address",      Value = "",                            Group = "contact" },
-        new() { Key = "contact.workingHours", Value = "Mon-Fri 9AM-5PM",             Group = "contact" },
+        if (!File.Exists(jsonPath)) return;
 
-        // Social
-        new() { Key = "social.facebook",      Value = "",                            Group = "social" },
-        new() { Key = "social.twitter",       Value = "",                            Group = "social" },
-        new() { Key = "social.instagram",     Value = "",                            Group = "social" },
-        new() { Key = "social.linkedin",      Value = "",                            Group = "social" },
-        new() { Key = "social.youtube",       Value = "",                            Group = "social" },
+        var json = await File.ReadAllTextAsync(jsonPath);
+        var document = JsonDocument.Parse(json);
+        var settings = document.RootElement.GetProperty("settings");
 
-        // SEO
-        new() { Key = "seo.metaTitle",        Value = "Guidy — Learn Online",        Group = "seo" },
-        new() { Key = "seo.metaDescription",  Value = "Best online learning platform", Group = "seo" },
+        foreach (var s in settings.EnumerateArray())
+        {
+            context.PlatformSettings.Add(new PlatformSetting
+            {
+                Key = s.GetProperty("key").GetString()!,
+                Value = s.GetProperty("value").GetString()!,
+                Group = s.GetProperty("group").GetString()
+            });
+        }
 
-        // Features
-        new() { Key = "features.allowRegister",     Value = "true",  Group = "features" },
-        new() { Key = "features.maintenanceMode",   Value = "false", Group = "features" },
-        new() { Key = "features.allowGoogleLogin",  Value = "true",  Group = "features" },
-        new() { Key = "features.allowSubscription", Value = "true",  Group = "features" },
-    };
-
-        await context.PlatformSettings.AddRangeAsync(settings);
         await context.SaveChangesAsync();
         logger.LogInformation("Platform settings seeded.");
     }

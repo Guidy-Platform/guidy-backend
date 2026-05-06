@@ -1,27 +1,35 @@
 {
   "coupons": [
     {
-      "code": "SAVE20",
+      "code": "WELCOME20",
       "discountType": "Percentage",
       "discountValue": 20,
+      "usageLimit": 500,
+      "expiresAt": null,
+      "isActive": true
+    },
+    {
+      "code": "SAVE30",
+      "discountType": "Percentage",
+      "discountValue": 30,
+      "usageLimit": 200,
+      "expiresAt": null,
+      "isActive": true
+    },
+    {
+      "code": "FLAT15",
+      "discountType": "FixedAmount",
+      "discountValue": 15,
       "usageLimit": 100,
       "expiresAt": null,
       "isActive": true
     },
     {
-      "code": "FLAT10",
+      "code": "FLAT25",
       "discountType": "FixedAmount",
-      "discountValue": 10,
+      "discountValue": 25,
       "usageLimit": 50,
       "expiresAt": null,
-      "isActive": true
-    },
-    {
-      "code": "EXPIRED",
-      "discountType": "Percentage",
-      "discountValue": 30,
-      "usageLimit": null,
-      "expiresAt": "2024-01-01T00:00:00Z",
       "isActive": true
     },
     {
@@ -30,6 +38,22 @@
       "discountValue": 100,
       "usageLimit": 10,
       "expiresAt": null,
+      "isActive": true
+    },
+    {
+      "code": "SUMMER2026",
+      "discountType": "Percentage",
+      "discountValue": 40,
+      "usageLimit": 300,
+      "expiresAt": "2026-09-01T00:00:00Z",
+      "isActive": true
+    },
+    {
+      "code": "EXPIRED",
+      "discountType": "Percentage",
+      "discountValue": 50,
+      "usageLimit": null,
+      "expiresAt": "2024-01-01T00:00:00Z",
       "isActive": true
     }
   ]
