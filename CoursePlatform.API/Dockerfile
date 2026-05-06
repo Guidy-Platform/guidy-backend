@@ -1,8 +1,7 @@
-# Base runtime image
+﻿# Base runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 WORKDIR /app
 
-# Render one port
 EXPOSE 8080
 
 # Build image

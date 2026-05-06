@@ -1,41 +1,22 @@
-﻿// API/Program.cs
-using CoursePlatform.API.Extensions;
+﻿using CoursePlatform.API.Extensions;
 using CoursePlatform.API.Middleware;
 using Microsoft.AspNetCore.Http.Features;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // ─── Kestrel for Container ────────────────────────────────────────
+var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
 
 // ─── CORS ─────────────────────────────────────────────────────────
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("FrontendPolicy", policy =>
     {
-        //if (builder.Environment.IsDevelopment())
-        //{
-        //    policy.AllowAnyOrigin()
-        //          .AllowAnyMethod()
-        //          .AllowAnyHeader();
-        //}
-        //else
-        //{
-        //    policy.WithOrigins(
-        //            builder.Configuration
-        //                   .GetSection("AllowedOrigins")
-        //                   .Get<string[]>() ?? []
-        //          )
-        //          .AllowAnyMethod()
-        //          .AllowAnyHeader()
-        //          .AllowCredentials();
-        //}
-
         policy.AllowAnyOrigin()
-                 .AllowAnyMethod()
-                 .AllowAnyHeader();
+              .AllowAnyMethod()
+              .AllowAnyHeader();
     });
 });
-
 
 builder.Services.AddApplicationServices(builder.Configuration, builder.Environment);
 builder.Services.AddSwaggerWithJwt();
@@ -53,15 +34,25 @@ builder.WebHost.ConfigureKestrel(options =>
     options.Limits.MaxRequestBodySize = 104_857_600;  // 100MB
 });
 
-
 var app = builder.Build();
 
+// ─── Kestrel binding for container ────────────────────────────────
+app.Urls.Add($"http://0.0.0.0:{port}");
+
+// ─── Global exception middleware (always first) ───────────────────
+app.UseMiddleware<ExceptionMiddleware>();
+
+// ─── Enable buffering BEFORE other middleware ─────────────────────
 app.Use(async (context, next) =>
 {
-    context.Request.EnableBuffering();  //  stream seekable
+    context.Request.EnableBuffering();
     await next();
 });
 
+// ─── Static files ─────────────────────────────────────────────────
+app.UseStaticFiles();
+
+// ─── Swagger ──────────────────────────────────────────────────────
 app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
@@ -69,36 +60,25 @@ app.UseSwaggerUI(c =>
     c.RoutePrefix = "swagger";
 });
 
+// ─── CORS ─────────────────────────────────────────────────────────
+app.UseCors("FrontendPolicy");
 
-app.UseStaticFiles();
-
-app.UseCors("FrontendPolicy");   
-
-
-app.UseMiddleware<ExceptionMiddleware>();
-
-
-
+// ─── Auth ─────────────────────────────────────────────────────────
 app.UseAuthentication();
 app.UseAuthorization();
+
+// ─── Controllers ──────────────────────────────────────────────────
 app.MapControllers();
-// Health check for Azure
+
+// ─── Health check ─────────────────────────────────────────────────
 app.MapGet("/health", () => Results.Ok(new
 {
-    status  = "healthy",
+    status = "healthy",
     version = "1.0.0",
-    time    = DateTime.UtcNow
+    time = DateTime.UtcNow
 }));
-Console.WriteLine("Test DB INIT CALLED");
+
+// ─── DB Init ──────────────────────────────────────────────────────
 await app.InitializeDatabaseAsync();
-Console.WriteLine("Test DB INIT CALLED");
-//try
-//{
-//    await app.InitializeDatabaseAsync();
-//}
-//catch (Exception ex)
-//{
-//    Console.WriteLine("DB init failed: " + ex.Message);
-//}
 
 app.Run();
