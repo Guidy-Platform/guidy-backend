@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Http.Features;
 var builder = WebApplication.CreateBuilder(args);
 
 // ─── Kestrel for Container ────────────────────────────────────────
-var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+//var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
 
 // ─── CORS ─────────────────────────────────────────────────────────
 builder.Services.AddCors(options =>
@@ -37,7 +37,7 @@ builder.WebHost.ConfigureKestrel(options =>
 var app = builder.Build();
 
 // ─── Kestrel binding for container ────────────────────────────────
-app.Urls.Add($"http://0.0.0.0:{port}");
+//app.Urls.Add($"http://0.0.0.0:{port}");
 
 // ─── Global exception middleware (always first) ───────────────────
 app.UseMiddleware<ExceptionMiddleware>();
