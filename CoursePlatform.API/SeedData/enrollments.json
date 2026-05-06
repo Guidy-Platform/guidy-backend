@@ -1,0 +1,29 @@
+{
+  "enrollments": [
+    {
+      "studentEmail": "ahmed.ali@guidy.com",
+      "courseTitle": "ASP.NET Core Masterclass",
+      "orderRef": 1
+    },
+    {
+      "studentEmail": "aya.samir@guidy.com",
+      "courseTitle": "React for Beginners",
+      "orderRef": 2
+    },
+    {
+      "studentEmail": "mona.hany@guidy.com",
+      "courseTitle": "Python for Data Science",
+      "orderRef": 3
+    },
+    {
+      "studentEmail": "salma.adel@guidy.com",
+      "courseTitle": "SQL and Database Design",
+      "orderRef": 4
+    },
+    {
+      "studentEmail": "mostafa.mahmoud@guidy.com",
+      "courseTitle": "Machine Learning with Scikit-Learn",
+      "orderRef": 5
+    }
+  ]
+}

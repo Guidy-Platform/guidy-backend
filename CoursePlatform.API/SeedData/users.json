@@ -1,25 +1,131 @@
 {
   "users": [
     {
-      "firstName": "Ahmed",
+      "firstName": "Admin",
+      "lastName": "System",
+      "email": "admin@guidy.com",
+      "password": "Admin@123",
+      "role": "Admin",
+      "bio": "Platform Administrator"
+    },
+
+
+    {
+      "firstName": "Sara",
+      "lastName": "Ahmed",
+      "email": "sara.ahmed@guidy.com",
+      "password": "Instructor@123",
+      "role": "Instructor",
+      "bio": "Senior .NET Engineer specialized in Clean Architecture and Microservices.",
+      "profilePictureUrl": "https://randomuser.me/api/portraits/women/1.jpg"
+    },
+    {
+      "firstName": "Mohamed",
       "lastName": "Hassan",
-      "email": "student@courseplatform.com",
+      "email": "mohamed.hassan@guidy.com",
+      "password": "Instructor@123",
+      "role": "Instructor",
+      "bio": "Machine Learning Engineer and Data Scientist using Python and TensorFlow.",
+      "profilePictureUrl": "https://randomuser.me/api/portraits/men/2.jpg"
+    },
+    {
+      "firstName": "Omar",
+      "lastName": "Khaled",
+      "email": "omar.khaled@guidy.com",
+      "password": "Instructor@123",
+      "role": "Instructor",
+      "bio": "Frontend expert in React, Next.js and modern UI/UX.",
+      "profilePictureUrl": "https://randomuser.me/api/portraits/men/3.jpg"
+    },
+    {
+      "firstName": "Nour",
+      "lastName": "Ibrahim",
+      "email": "nour.ibrahim@guidy.com",
+      "password": "Instructor@123",
+      "role": "Instructor",
+      "bio": "DevOps Engineer specializing in Docker, Kubernetes, and CI/CD pipelines.",
+      "profilePictureUrl": "https://randomuser.me/api/portraits/women/4.jpg"
+    },
+    {
+      "firstName": "Youssef",
+      "lastName": "Adel",
+      "email": "youssef.adel@guidy.com",
+      "password": "Instructor@123",
+      "role": "Instructor",
+      "bio": "Backend Engineer using Node.js and distributed systems.",
+      "profilePictureUrl": "https://randomuser.me/api/portraits/men/5.jpg"
+    },
+
+
+    {
+      "firstName": "Ahmed",
+      "lastName": "Ali",
+      "email": "ahmed.ali@guidy.com",
       "password": "Student@123",
       "role": "Student"
     },
     {
-      "firstName": "Sara",
-      "lastName": "Ahmed",
-      "email": "instructor@courseplatform.com",
-      "password": "Instructor@123",
-      "role": "Instructor"
+      "firstName": "Aya",
+      "lastName": "Samir",
+      "email": "aya.samir@guidy.com",
+      "password": "Student@123",
+      "role": "Student"
     },
     {
-      "firstName": "Admin",
-      "lastName": "User",
-      "email": "admin@courseplatform.com",
-      "password": "Admin@123",
-      "role": "Admin"
+      "firstName": "Mona",
+      "lastName": "Hany",
+      "email": "mona.hany@guidy.com",
+      "password": "Student@123",
+      "role": "Student"
+    },
+    {
+      "firstName": "Khaled",
+      "lastName": "Tarek",
+      "email": "khaled.tarek@guidy.com",
+      "password": "Student@123",
+      "role": "Student"
+    },
+    {
+      "firstName": "Salma",
+      "lastName": "Adel",
+      "email": "salma.adel@guidy.com",
+      "password": "Student@123",
+      "role": "Student"
+    },
+    {
+      "firstName": "Mostafa",
+      "lastName": "Mahmoud",
+      "email": "mostafa.mahmoud@guidy.com",
+      "password": "Student@123",
+      "role": "Student"
+    },
+    {
+      "firstName": "Hana",
+      "lastName": "Yasser",
+      "email": "hana.yasser@guidy.com",
+      "password": "Student@123",
+      "role": "Student"
+    },
+    {
+      "firstName": "Ali",
+      "lastName": "Fathy",
+      "email": "ali.fathy@guidy.com",
+      "password": "Student@123",
+      "role": "Student"
+    },
+    {
+      "firstName": "Nada",
+      "lastName": "Sameh",
+      "email": "nada.sameh@guidy.com",
+      "password": "Student@123",
+      "role": "Student"
+    },
+    {
+      "firstName": "Yara",
+      "lastName": "Hossam",
+      "email": "yara.hossam@guidy.com",
+      "password": "Student@123",
+      "role": "Student"
     }
   ]
 }

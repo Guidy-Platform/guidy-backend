@@ -1,0 +1,84 @@
+{
+  "orders": [
+    {
+      "id": 1,
+      "studentEmail": "ahmed.ali@guidy.com",
+      "status": "Paid",
+      "couponCode": "WELCOME20",
+      "totalPrice": 49.99,
+      "discountAmount": 10,
+      "finalPrice": 39.99,
+      "paidAt": "2026-01-10T10:00:00Z",
+      "items": [
+        {
+          "courseTitle": "ASP.NET Core Masterclass",
+          "price": 49.99
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "studentEmail": "aya.samir@guidy.com",
+      "status": "Paid",
+      "couponCode": null,
+      "totalPrice": 44.99,
+      "discountAmount": 0,
+      "finalPrice": 44.99,
+      "paidAt": "2026-02-10T10:00:00Z",
+      "items": [
+        {
+          "courseTitle": "React for Beginners",
+          "price": 44.99
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "studentEmail": "mona.hany@guidy.com",
+      "status": "Paid",
+      "couponCode": "SAVE30",
+      "totalPrice": 54.99,
+      "discountAmount": 16.5,
+      "finalPrice": 38.49,
+      "paidAt": "2026-03-01T10:00:00Z",
+      "items": [
+        {
+          "courseTitle": "Python for Data Science",
+          "price": 54.99
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "studentEmail": "salma.adel@guidy.com",
+      "status": "Paid",
+      "couponCode": "FLAT15",
+      "totalPrice": 39.99,
+      "discountAmount": 15,
+      "finalPrice": 24.99,
+      "paidAt": "2026-03-15T10:00:00Z",
+      "items": [
+        {
+          "courseTitle": "SQL and Database Design",
+          "price": 39.99
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "studentEmail": "mostafa.mahmoud@guidy.com",
+      "status": "Paid",
+      "couponCode": null,
+      "totalPrice": 69.99,
+      "discountAmount": 0,
+      "finalPrice": 69.99,
+      "paidAt": "2026-04-01T10:00:00Z",
+      "items": [
+        {
+          "courseTitle": "Machine Learning with Scikit-Learn",
+          "price": 69.99
+        }
+      ]
+    }
+  ]
+}

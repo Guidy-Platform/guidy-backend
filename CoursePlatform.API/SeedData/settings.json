@@ -1,0 +1,109 @@
+{
+  "settings": [
+    {
+      "key": "platform.name",
+      "value": "Guidy Platform",
+      "group": "general"
+    },
+    {
+      "key": "platform.description",
+      "value": "Learn from the best — online courses for everyone",
+      "group": "general"
+    },
+    {
+      "key": "platform.logoUrl",
+      "value": "",
+      "group": "general"
+    },
+    {
+      "key": "platform.faviconUrl",
+      "value": "",
+      "group": "general"
+    },
+    {
+      "key": "platform.currency",
+      "value": "USD",
+      "group": "general"
+    },
+    {
+      "key": "platform.language",
+      "value": "en",
+      "group": "general"
+    },
+    {
+      "key": "contact.email",
+      "value": "support@guidy.com",
+      "group": "contact"
+    },
+    {
+      "key": "contact.phone",
+      "value": "+20 100 000 0000",
+      "group": "contact"
+    },
+    {
+      "key": "contact.address",
+      "value": "Cairo, Egypt",
+      "group": "contact"
+    },
+    {
+      "key": "contact.workingHours",
+      "value": "Sun-Thu 9AM-5PM",
+      "group": "contact"
+    },
+    {
+      "key": "social.facebook",
+      "value": "https://facebook.com/guidyplatform",
+      "group": "social"
+    },
+    {
+      "key": "social.twitter",
+      "value": "https://twitter.com/guidyplatform",
+      "group": "social"
+    },
+    {
+      "key": "social.instagram",
+      "value": "https://instagram.com/guidyplatform",
+      "group": "social"
+    },
+    {
+      "key": "social.linkedin",
+      "value": "https://linkedin.com/company/guidy",
+      "group": "social"
+    },
+    {
+      "key": "social.youtube",
+      "value": "https://youtube.com/@guidyplatform",
+      "group": "social"
+    },
+    {
+      "key": "seo.metaTitle",
+      "value": "Guidy — Learn Online",
+      "group": "seo"
+    },
+    {
+      "key": "seo.metaDescription",
+      "value": "Best online learning platform with top-quality courses",
+      "group": "seo"
+    },
+    {
+      "key": "features.allowRegister",
+      "value": "true",
+      "group": "features"
+    },
+    {
+      "key": "features.maintenanceMode",
+      "value": "false",
+      "group": "features"
+    },
+    {
+      "key": "features.allowGoogleLogin",
+      "value": "true",
+      "group": "features"
+    },
+    {
+      "key": "features.allowSubscription",
+      "value": "true",
+      "group": "features"
+    }
+  ]
+}

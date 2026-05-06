@@ -8,8 +8,9 @@
       "discountPrice": 39.99,
       "level": "Intermediate",
       "language": "English",
+      "thumbnailUrl": "https://img.youtube.com/vi/AhAxLiGC7Pc/maxresdefault.jpg",
       "subCategorySlug": "web-development",
-      "instructorEmail": "instructor@courseplatform.com",
+      "instructorEmail": "sara.ahmed@guidy.com",
       "requirements": [
         "Basic C# knowledge",
         "Understanding of OOP concepts",
@@ -28,21 +29,24 @@
             {
               "title": "Course Introduction",
               "description": "Overview of what we will build in this course.",
-              "durationInSeconds": 312,
+              "videoUrl": "https://youtu.be/P1j1PI0YL-M?si=PZnTmxctNTExpGbK",
+              "durationInSeconds": 47,
               "type": "Video",
               "isFreePreview": true
             },
             {
-              "title": "Setting Up Your Development Environment",
-              "description": "Install .NET SDK, Visual Studio, and all required tools.",
-              "durationInSeconds": 845,
+              "title": "Setting Up Development Environment",
+              "description": "Install .NET SDK, Visual Studio, and required tools.",
+              "videoUrl": "https://youtu.be/TxaZYXtZWCM?si=epNu3t500kmhTwry",
+              "durationInSeconds": 1800,
               "type": "Video",
               "isFreePreview": true
             },
             {
               "title": "Your First ASP.NET Core App",
               "description": "Create and run your first ASP.NET Core application.",
-              "durationInSeconds": 1020,
+              "videoUrl": "https://youtu.be/t2aMZFzV3jI?si=TS5fGFuFtvAA5imG",
+              "durationInSeconds": 2324,
               "type": "Video",
               "isFreePreview": false
             }
@@ -52,29 +56,25 @@
           "title": "Building REST APIs",
           "lessons": [
             {
-              "title": "Understanding REST Principles",
-              "description": "Learn what REST is and the principles behind it.",
-              "durationInSeconds": 920,
-              "type": "Video",
-              "isFreePreview": false
-            },
-            {
               "title": "Controllers and Routing",
-              "description": "Deep dive into controllers, actions, and routing in ASP.NET Core.",
-              "durationInSeconds": 1340,
+              "description": "Deep dive into controllers, actions, and routing.",
+              "videoUrl": "https://youtu.be/j87UkenRf7k?si=iiwIgDMMSqp4G-b9",
+              "durationInSeconds": 1666,
               "type": "Video",
               "isFreePreview": false
             },
             {
               "title": "HTTP Methods and Status Codes",
-              "description": "GET, POST, PUT, PATCH, DELETE — when to use each.",
-              "durationInSeconds": 780,
+              "description": "GET, POST, PUT, PATCH, DELETE â€” when to use each.",
+              "videoUrl": "https://youtu.be/XTB3V6R1L-c?si=fMMy1GQrLZc7y3tS",
+              "durationInSeconds": 1462,
               "type": "Video",
               "isFreePreview": false
             },
             {
               "title": "REST API Quiz",
               "description": "Test your understanding of REST API concepts.",
+              "videoUrl": null,
               "durationInSeconds": 0,
               "type": "Quiz",
               "isFreePreview": false
@@ -87,28 +87,24 @@
             {
               "title": "Introduction to EF Core",
               "description": "What is an ORM and why use EF Core.",
-              "durationInSeconds": 870,
+              "videoUrl": "https://youtu.be/eOqTJWuCXho?si=hfFspoOKfkKHMRmY",
+              "durationInSeconds": 4272,
               "type": "Video",
               "isFreePreview": false
             },
             {
               "title": "Code First Approach",
               "description": "Create your database from C# classes.",
-              "durationInSeconds": 1560,
+              "videoUrl": "https://youtu.be/ByIQf4VS2d4?si=kxJPJVIZS8ZWFb2f",
+              "durationInSeconds": 3180,
               "type": "Video",
               "isFreePreview": false
             },
             {
-              "title": "Migrations and Seeding",
-              "description": "Manage database schema changes with migrations.",
-              "durationInSeconds": 1120,
-              "type": "Video",
-              "isFreePreview": false
-            },
-            {
-              "title": "Querying Data with LINQ",
+              "title": "Querying with LINQ",
               "description": "Use LINQ to query your database efficiently.",
-              "durationInSeconds": 1890,
+              "videoUrl": "https://youtu.be/LEhv_owDo0o?si=dHWBporebvpcTpZd",
+              "durationInSeconds": 2580,
               "type": "Video",
               "isFreePreview": false
             }
@@ -120,21 +116,24 @@
             {
               "title": "JWT Authentication Explained",
               "description": "Understand how JWT tokens work.",
-              "durationInSeconds": 940,
+              "videoUrl": "https://youtu.be/F3ryldPGQoM?si=B3TaxQdw_esDh4XW",
+              "durationInSeconds": 1560,
               "type": "Video",
               "isFreePreview": false
             },
             {
               "title": "Implementing JWT in ASP.NET Core",
               "description": "Add JWT authentication to your API step by step.",
-              "durationInSeconds": 1670,
+              "videoUrl": "https://youtu.be/-gWx_NILonQ?si=mLQxgt9ucaDM7MxI",
+              "durationInSeconds": 960,
               "type": "Video",
               "isFreePreview": false
             },
             {
               "title": "Role-Based Authorization",
               "description": "Restrict endpoints based on user roles.",
-              "durationInSeconds": 980,
+              "videoUrl": "https://youtu.be/3pbfQ-ZDoyc?si=znnBq7bKJQnZ-QTb",
+              "durationInSeconds": 1920,
               "type": "Video",
               "isFreePreview": false
             }
@@ -144,14 +143,15 @@
     },
     {
       "title": "Clean Architecture in .NET",
-      "description": "Learn how to structure .NET applications using Clean Architecture principles. This course teaches you CQRS, MediatR, Repository Pattern, Unit of Work, Specification Pattern, and Domain-Driven Design with hands-on projects.",
-      "shortDescription": "Professional .NET project structure",
+      "description": "Learn how to structure .NET applications using Clean Architecture principles. Covers CQRS, MediatR, Repository Pattern, Unit of Work, Specification Pattern, and Domain-Driven Design with hands-on projects.",
+      "shortDescription": "Professional .NET project structure with Clean Architecture",
       "price": 59.99,
       "discountPrice": null,
       "level": "Advanced",
       "language": "English",
-      "subCategorySlug": "web-development",
-      "instructorEmail": "instructor@courseplatform.com",
+      "thumbnailUrl": "https://img.youtube.com/vi/dI5B3gZa9tY/maxresdefault.jpg",
+      "subCategorySlug": "software-engineering",
+      "instructorEmail": "sara.ahmed@guidy.com",
       "requirements": [
         "Intermediate C# skills",
         "Experience with ASP.NET Core",
@@ -161,7 +161,7 @@
         "Implement Clean Architecture",
         "Apply CQRS with MediatR",
         "Use Repository and Unit of Work patterns",
-        "Write clean, maintainable code"
+        "Write clean and maintainable code"
       ],
       "sections": [
         {
@@ -169,21 +169,24 @@
           "lessons": [
             {
               "title": "What is Clean Architecture?",
-              "description": "Understand the layers and principles of Clean Architecture.",
+              "description": "Understand the layers and principles.",
+              "videoUrl": "https://www.youtube.com/watch?v=dI5B3gZa9tY",
               "durationInSeconds": 1240,
               "type": "Video",
               "isFreePreview": true
             },
             {
               "title": "The Dependency Rule",
-              "description": "Learn the most important rule in Clean Architecture.",
+              "description": "The most important rule in Clean Architecture.",
+              "videoUrl": "https://www.youtube.com/watch?v=dI5B3gZa9tY",
               "durationInSeconds": 890,
               "type": "Video",
               "isFreePreview": true
             },
             {
               "title": "Setting Up the Solution Structure",
-              "description": "Create the project structure following Clean Architecture.",
+              "description": "Create the project structure step by step.",
+              "videoUrl": "https://www.youtube.com/watch?v=dI5B3gZa9tY",
               "durationInSeconds": 1540,
               "type": "Video",
               "isFreePreview": false
@@ -196,34 +199,23 @@
             {
               "title": "Introduction to CQRS",
               "description": "Why separate Commands from Queries.",
+              "videoUrl": "https://www.youtube.com/watch?v=dI5B3gZa9tY",
               "durationInSeconds": 780,
               "type": "Video",
               "isFreePreview": false
             },
             {
-              "title": "Setting Up MediatR",
-              "description": "Install and configure MediatR in your project.",
-              "durationInSeconds": 640,
-              "type": "Video",
-              "isFreePreview": false
-            },
-            {
-              "title": "Writing Your First Command",
-              "description": "Create a Command, Handler, and Validator.",
+              "title": "Writing Commands and Queries",
+              "description": "Create Commands, Queries, Handlers and Validators.",
+              "videoUrl": "https://www.youtube.com/watch?v=dI5B3gZa9tY",
               "durationInSeconds": 1340,
-              "type": "Video",
-              "isFreePreview": false
-            },
-            {
-              "title": "Writing Your First Query",
-              "description": "Create a Query and Handler with pagination.",
-              "durationInSeconds": 1120,
               "type": "Video",
               "isFreePreview": false
             },
             {
               "title": "Pipeline Behaviors",
               "description": "Add logging and validation as pipeline behaviors.",
+              "videoUrl": "https://www.youtube.com/watch?v=dI5B3gZa9tY",
               "durationInSeconds": 1560,
               "type": "Video",
               "isFreePreview": false
@@ -231,11 +223,12 @@
           ]
         },
         {
-          "title": "Repository and Unit of Work",
+          "title": "Repository and Specification Pattern",
           "lessons": [
             {
               "title": "Generic Repository Pattern",
-              "description": "Build a generic repository that works with any entity.",
+              "description": "Build a generic repository for any entity.",
+              "videoUrl": "https://www.youtube.com/watch?v=dI5B3gZa9tY",
               "durationInSeconds": 1780,
               "type": "Video",
               "isFreePreview": false
@@ -243,14 +236,8 @@
             {
               "title": "Specification Pattern",
               "description": "Create reusable query specifications.",
+              "videoUrl": "https://www.youtube.com/watch?v=dI5B3gZa9tY",
               "durationInSeconds": 1430,
-              "type": "Video",
-              "isFreePreview": false
-            },
-            {
-              "title": "Unit of Work Implementation",
-              "description": "Wrap multiple operations in a single transaction.",
-              "durationInSeconds": 980,
               "type": "Video",
               "isFreePreview": false
             }
@@ -266,9 +253,11 @@
       "discountPrice": 34.99,
       "level": "Beginner",
       "language": "English",
+      "thumbnailUrl": "https://img.youtube.com/vi/Ke90Tje7VS0/maxresdefault.jpg",
       "subCategorySlug": "web-development",
-      "instructorEmail": "instructor@courseplatform.com",
+      "instructorEmail": "omar.khaled@guidy.com",
       "requirements": [
+
         "Basic HTML and CSS",
         "Basic JavaScript knowledge",
         "A code editor installed"
@@ -286,27 +275,23 @@
             {
               "title": "What is React?",
               "description": "Introduction to React and why it exists.",
+              "videoUrl": "https://www.youtube.com/watch?v=Ke90Tje7VS0",
               "durationInSeconds": 540,
-              "type": "Video",
-              "isFreePreview": true
-            },
-            {
-              "title": "JSX Syntax",
-              "description": "Writing HTML inside JavaScript with JSX.",
-              "durationInSeconds": 780,
               "type": "Video",
               "isFreePreview": true
             },
             {
               "title": "Components and Props",
               "description": "Build and reuse components with props.",
+              "videoUrl": "https://www.youtube.com/watch?v=Ke90Tje7VS0",
               "durationInSeconds": 1120,
               "type": "Video",
-              "isFreePreview": false
+              "isFreePreview": true
             },
             {
               "title": "State with useState",
               "description": "Manage component state using the useState hook.",
+              "videoUrl": "https://www.youtube.com/watch?v=Ke90Tje7VS0",
               "durationInSeconds": 1340,
               "type": "Video",
               "isFreePreview": false
@@ -319,6 +304,7 @@
             {
               "title": "useEffect Hook",
               "description": "Handle side effects in functional components.",
+              "videoUrl": "https://www.youtube.com/watch?v=Ke90Tje7VS0",
               "durationInSeconds": 1560,
               "type": "Video",
               "isFreePreview": false
@@ -326,6 +312,7 @@
             {
               "title": "useContext Hook",
               "description": "Share state across components without prop drilling.",
+              "videoUrl": "https://www.youtube.com/watch?v=Ke90Tje7VS0",
               "durationInSeconds": 980,
               "type": "Video",
               "isFreePreview": false
@@ -333,6 +320,7 @@
             {
               "title": "Custom Hooks",
               "description": "Create your own reusable hooks.",
+              "videoUrl": "https://www.youtube.com/watch?v=Ke90Tje7VS0",
               "durationInSeconds": 1230,
               "type": "Video",
               "isFreePreview": false
@@ -345,20 +333,15 @@
             {
               "title": "Fetch API and Axios",
               "description": "Make HTTP requests from React.",
+              "videoUrl": "https://www.youtube.com/watch?v=Ke90Tje7VS0",
               "durationInSeconds": 890,
-              "type": "Video",
-              "isFreePreview": false
-            },
-            {
-              "title": "Loading and Error States",
-              "description": "Handle loading spinners and error messages.",
-              "durationInSeconds": 670,
               "type": "Video",
               "isFreePreview": false
             },
             {
               "title": "Building a Full CRUD App",
               "description": "Connect to a real backend and build a complete CRUD app.",
+              "videoUrl": "https://www.youtube.com/watch?v=Ke90Tje7VS0",
               "durationInSeconds": 2340,
               "type": "Video",
               "isFreePreview": false
@@ -375,12 +358,12 @@
       "discountPrice": 44.99,
       "level": "Beginner",
       "language": "English",
+      "thumbnailUrl": "https://img.youtube.com/vi/_uQrJ0TkZlc/maxresdefault.jpg",
       "subCategorySlug": "data-analysis",
-      "instructorEmail": "instructor@courseplatform.com",
+      "instructorEmail": "mohamed.hassan@guidy.com",
       "requirements": [
         "No prior programming experience needed",
-        "A computer with internet access",
-        "Willingness to learn"
+        "A computer with internet access"
       ],
       "whatYouLearn": [
         "Python programming basics",
@@ -394,14 +377,16 @@
           "lessons": [
             {
               "title": "Python Introduction",
-              "description": "Why Python for data science and setting up your environment.",
+              "description": "Why Python for data science.",
+              "videoUrl": "https://www.youtube.com/watch?v=_uQrJ0TkZlc",
               "durationInSeconds": 780,
               "type": "Video",
               "isFreePreview": true
             },
             {
               "title": "Variables and Data Types",
-              "description": "Numbers, strings, lists, dictionaries, and more.",
+              "description": "Numbers, strings, lists, and dictionaries.",
+              "videoUrl": "https://www.youtube.com/watch?v=_uQrJ0TkZlc",
               "durationInSeconds": 1340,
               "type": "Video",
               "isFreePreview": true
@@ -409,15 +394,9 @@
             {
               "title": "Control Flow",
               "description": "If statements, loops, and functions in Python.",
+              "videoUrl": "https://www.youtube.com/watch?v=_uQrJ0TkZlc",
               "durationInSeconds": 1560,
               "type": "Video",
-              "isFreePreview": false
-            },
-            {
-              "title": "Python Quiz",
-              "description": "Test your Python basics knowledge.",
-              "durationInSeconds": 0,
-              "type": "Quiz",
               "isFreePreview": false
             }
           ]
@@ -428,6 +407,7 @@
             {
               "title": "Introduction to NumPy",
               "description": "Arrays, operations, and mathematical functions.",
+              "videoUrl": "https://www.youtube.com/watch?v=_uQrJ0TkZlc",
               "durationInSeconds": 1120,
               "type": "Video",
               "isFreePreview": false
@@ -435,6 +415,7 @@
             {
               "title": "Pandas DataFrames",
               "description": "Load, manipulate, and analyze data with Pandas.",
+              "videoUrl": "https://www.youtube.com/watch?v=_uQrJ0TkZlc",
               "durationInSeconds": 1890,
               "type": "Video",
               "isFreePreview": false
@@ -442,14 +423,8 @@
             {
               "title": "Data Cleaning",
               "description": "Handle missing values, duplicates, and outliers.",
+              "videoUrl": "https://www.youtube.com/watch?v=_uQrJ0TkZlc",
               "durationInSeconds": 1560,
-              "type": "Video",
-              "isFreePreview": false
-            },
-            {
-              "title": "Working with Real Datasets",
-              "description": "Practice with real-world CSV files.",
-              "durationInSeconds": 2100,
               "type": "Video",
               "isFreePreview": false
             }
@@ -461,13 +436,15 @@
             {
               "title": "Matplotlib Basics",
               "description": "Create line charts, bar charts, and scatter plots.",
+              "videoUrl": "https://www.youtube.com/watch?v=_uQrJ0TkZlc",
               "durationInSeconds": 980,
               "type": "Video",
               "isFreePreview": false
             },
             {
               "title": "Seaborn for Statistical Plots",
-              "description": "Beautiful statistical visualizations with Seaborn.",
+              "description": "Beautiful statistical visualizations.",
+              "videoUrl": "https://www.youtube.com/watch?v=_uQrJ0TkZlc",
               "durationInSeconds": 1120,
               "type": "Video",
               "isFreePreview": false
@@ -478,14 +455,15 @@
     },
     {
       "title": "Machine Learning with Scikit-Learn",
-      "description": "Dive into machine learning with hands-on projects. Learn supervised and unsupervised learning, model evaluation, feature engineering, and deploy your first ML model. Uses Python and Scikit-learn throughout.",
-      "shortDescription": "Hands-on ML with Python",
+      "description": "Dive into machine learning with hands-on projects. Learn supervised and unsupervised learning, model evaluation, feature engineering, and deploy your first ML model.",
+      "shortDescription": "Hands-on ML with Python and Scikit-learn",
       "price": 69.99,
       "discountPrice": null,
       "level": "Intermediate",
       "language": "English",
+      "thumbnailUrl": "https://img.youtube.com/vi/7eh4d6sabA0/maxresdefault.jpg",
       "subCategorySlug": "machine-learning",
-      "instructorEmail": "instructor@courseplatform.com",
+      "instructorEmail": "mohamed.hassan@guidy.com",
       "requirements": [
         "Python basics",
         "Basic statistics knowledge",
@@ -493,8 +471,8 @@
       ],
       "whatYouLearn": [
         "Supervised learning algorithms",
-        "Unsupervised learning",
         "Model evaluation and tuning",
+        "Feature engineering",
         "Deploy ML models"
       ],
       "sections": [
@@ -504,23 +482,18 @@
             {
               "title": "What is Machine Learning?",
               "description": "Types of ML and real-world applications.",
+              "videoUrl": "https://www.youtube.com/watch?v=7eh4d6sabA0",
               "durationInSeconds": 890,
-              "type": "Video",
-              "isFreePreview": true
-            },
-            {
-              "title": "The ML Workflow",
-              "description": "From data to deployed model — the full pipeline.",
-              "durationInSeconds": 1120,
               "type": "Video",
               "isFreePreview": true
             },
             {
               "title": "Setting Up Scikit-Learn",
               "description": "Install and configure your ML environment.",
+              "videoUrl": "https://www.youtube.com/watch?v=7eh4d6sabA0",
               "durationInSeconds": 540,
               "type": "Video",
-              "isFreePreview": false
+              "isFreePreview": true
             }
           ]
         },
@@ -530,28 +503,16 @@
             {
               "title": "Linear Regression",
               "description": "Predict continuous values with linear regression.",
+              "videoUrl": "https://www.youtube.com/watch?v=7eh4d6sabA0",
               "durationInSeconds": 1780,
-              "type": "Video",
-              "isFreePreview": false
-            },
-            {
-              "title": "Logistic Regression",
-              "description": "Binary classification with logistic regression.",
-              "durationInSeconds": 1560,
               "type": "Video",
               "isFreePreview": false
             },
             {
               "title": "Decision Trees and Random Forests",
               "description": "Tree-based models for classification and regression.",
+              "videoUrl": "https://www.youtube.com/watch?v=7eh4d6sabA0",
               "durationInSeconds": 2100,
-              "type": "Video",
-              "isFreePreview": false
-            },
-            {
-              "title": "Support Vector Machines",
-              "description": "SVM for classification problems.",
-              "durationInSeconds": 1340,
               "type": "Video",
               "isFreePreview": false
             }
@@ -563,6 +524,7 @@
             {
               "title": "Train-Test Split",
               "description": "Properly evaluate your model performance.",
+              "videoUrl": "https://www.youtube.com/watch?v=7eh4d6sabA0",
               "durationInSeconds": 780,
               "type": "Video",
               "isFreePreview": false
@@ -570,6 +532,7 @@
             {
               "title": "Cross Validation",
               "description": "More robust model evaluation techniques.",
+              "videoUrl": "https://www.youtube.com/watch?v=7eh4d6sabA0",
               "durationInSeconds": 980,
               "type": "Video",
               "isFreePreview": false
@@ -577,6 +540,7 @@
             {
               "title": "Confusion Matrix and Metrics",
               "description": "Accuracy, precision, recall, F1-score explained.",
+              "videoUrl": "https://www.youtube.com/watch?v=7eh4d6sabA0",
               "durationInSeconds": 1120,
               "type": "Video",
               "isFreePreview": false
@@ -588,13 +552,14 @@
     {
       "title": "Docker and Kubernetes Fundamentals",
       "description": "Learn containerization with Docker and orchestration with Kubernetes. Build, ship, and run applications in containers. Deploy to a Kubernetes cluster and manage microservices at scale.",
-      "shortDescription": "Containers, Docker, and Kubernetes",
+      "shortDescription": "Containers, Docker, and Kubernetes from scratch",
       "price": 64.99,
       "discountPrice": 49.99,
       "level": "Intermediate",
       "language": "English",
-      "subCategorySlug": "web-development",
-      "instructorEmail": "instructor@courseplatform.com",
+      "thumbnailUrl": "https://img.youtube.com/vi/fqMOX6JJhGo/maxresdefault.jpg",
+      "subCategorySlug": "devops",
+      "instructorEmail": "nour.ibrahim@guidy.com",
       "requirements": [
         "Basic Linux command line",
         "Understanding of web applications",
@@ -613,53 +578,31 @@
             {
               "title": "What is Docker?",
               "description": "Containers vs VMs and why Docker matters.",
+              "videoUrl": "https://www.youtube.com/watch?v=fqMOX6JJhGo",
               "durationInSeconds": 780,
-              "type": "Video",
-              "isFreePreview": true
-            },
-            {
-              "title": "Installing Docker",
-              "description": "Setup Docker on Windows, Mac, and Linux.",
-              "durationInSeconds": 540,
               "type": "Video",
               "isFreePreview": true
             },
             {
               "title": "Your First Container",
               "description": "Pull an image and run your first container.",
+              "videoUrl": "https://www.youtube.com/watch?v=fqMOX6JJhGo",
               "durationInSeconds": 890,
               "type": "Video",
-              "isFreePreview": false
+              "isFreePreview": true
             },
             {
               "title": "Writing Dockerfiles",
               "description": "Create custom Docker images for your apps.",
+              "videoUrl": "https://www.youtube.com/watch?v=fqMOX6JJhGo",
               "durationInSeconds": 1340,
               "type": "Video",
               "isFreePreview": false
             },
             {
-              "title": "Docker Volumes and Networks",
-              "description": "Persist data and connect containers.",
-              "durationInSeconds": 1120,
-              "type": "Video",
-              "isFreePreview": false
-            }
-          ]
-        },
-        {
-          "title": "Docker Compose",
-          "lessons": [
-            {
-              "title": "Introduction to Docker Compose",
+              "title": "Docker Compose",
               "description": "Define multi-container apps with a single file.",
-              "durationInSeconds": 890,
-              "type": "Video",
-              "isFreePreview": false
-            },
-            {
-              "title": "Compose a Full Stack App",
-              "description": "Run API, database, and frontend together.",
+              "videoUrl": "https://www.youtube.com/watch?v=fqMOX6JJhGo",
               "durationInSeconds": 1890,
               "type": "Video",
               "isFreePreview": false
@@ -672,6 +615,7 @@
             {
               "title": "Kubernetes Architecture",
               "description": "Nodes, pods, services, and deployments explained.",
+              "videoUrl": "https://www.youtube.com/watch?v=fqMOX6JJhGo",
               "durationInSeconds": 1560,
               "type": "Video",
               "isFreePreview": false
@@ -679,84 +623,10 @@
             {
               "title": "Deploying to Kubernetes",
               "description": "Deploy your first app to a K8s cluster.",
+              "videoUrl": "https://www.youtube.com/watch?v=fqMOX6JJhGo",
               "durationInSeconds": 2100,
               "type": "Video",
               "isFreePreview": false
-            },
-            {
-              "title": "Scaling and Load Balancing",
-              "description": "Scale your app horizontally with Kubernetes.",
-              "durationInSeconds": 1340,
-              "type": "Video",
-              "isFreePreview": false
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Introduction to Programming — Free",
-      "description": "A completely free introduction to programming for absolute beginners. No prior experience needed. Learn the fundamental concepts of programming using simple examples and exercises.",
-      "shortDescription": "Free programming course for beginners",
-      "price": 0,
-      "discountPrice": null,
-      "level": "Beginner",
-      "language": "English",
-      "subCategorySlug": "web-development",
-      "instructorEmail": "instructor@courseplatform.com",
-      "requirements": [
-        "No experience needed",
-        "A computer with internet access"
-      ],
-      "whatYouLearn": [
-        "What is programming",
-        "Variables and data types",
-        "Conditions and loops",
-        "Functions and basic algorithms"
-      ],
-      "sections": [
-        {
-          "title": "Programming Concepts",
-          "lessons": [
-            {
-              "title": "What is Programming?",
-              "description": "Introduction to programming and how computers work.",
-              "durationInSeconds": 480,
-              "type": "Video",
-              "isFreePreview": true
-            },
-            {
-              "title": "Variables and Data Types",
-              "description": "Store and manipulate data in your programs.",
-              "durationInSeconds": 720,
-              "type": "Video",
-              "isFreePreview": true
-            },
-            {
-              "title": "Conditions",
-              "description": "Make decisions in your code with if/else.",
-              "durationInSeconds": 840,
-              "type": "Video",
-              "isFreePreview": true
-            }
-          ]
-        },
-        {
-          "title": "Loops and Functions",
-          "lessons": [
-            {
-              "title": "Loops",
-              "description": "Repeat actions with for and while loops.",
-              "durationInSeconds": 960,
-              "type": "Video",
-              "isFreePreview": true
-            },
-            {
-              "title": "Functions",
-              "description": "Write reusable blocks of code.",
-              "durationInSeconds": 1080,
-              "type": "Video",
-              "isFreePreview": true
             }
           ]
         }
@@ -765,13 +635,14 @@
     {
       "title": "SQL and Database Design",
       "description": "Learn SQL from the ground up and master database design. Write complex queries, design normalized schemas, work with stored procedures, and optimize query performance.",
-      "shortDescription": "Master SQL and database design",
+      "shortDescription": "Master SQL and database design from scratch",
       "price": 39.99,
       "discountPrice": 29.99,
       "level": "Beginner",
       "language": "English",
+      "thumbnailUrl": "https://img.youtube.com/vi/HXV3zeQKqGY/maxresdefault.jpg",
       "subCategorySlug": "data-analysis",
-      "instructorEmail": "instructor@courseplatform.com",
+      "instructorEmail": "youssef.adel@guidy.com",
       "requirements": [
         "No prior database experience",
         "Basic computer skills"
@@ -789,6 +660,7 @@
             {
               "title": "What is SQL?",
               "description": "Relational databases and SQL overview.",
+              "videoUrl": "https://www.youtube.com/watch?v=HXV3zeQKqGY",
               "durationInSeconds": 540,
               "type": "Video",
               "isFreePreview": true
@@ -796,20 +668,15 @@
             {
               "title": "SELECT Queries",
               "description": "Retrieve data from tables with SELECT.",
+              "videoUrl": "https://www.youtube.com/watch?v=HXV3zeQKqGY",
               "durationInSeconds": 890,
               "type": "Video",
               "isFreePreview": true
             },
             {
-              "title": "Filtering with WHERE",
-              "description": "Filter results using WHERE clauses.",
-              "durationInSeconds": 780,
-              "type": "Video",
-              "isFreePreview": false
-            },
-            {
-              "title": "INSERT, UPDATE, DELETE",
+              "title": "INSERT UPDATE DELETE",
               "description": "Modify data in your database.",
+              "videoUrl": "https://www.youtube.com/watch?v=HXV3zeQKqGY",
               "durationInSeconds": 1120,
               "type": "Video",
               "isFreePreview": false
@@ -822,29 +689,17 @@
             {
               "title": "JOINs Explained",
               "description": "INNER, LEFT, RIGHT, and FULL JOINs.",
+              "videoUrl": "https://www.youtube.com/watch?v=HXV3zeQKqGY",
               "durationInSeconds": 1560,
-              "type": "Video",
-              "isFreePreview": false
-            },
-            {
-              "title": "Subqueries",
-              "description": "Nest queries inside queries.",
-              "durationInSeconds": 980,
               "type": "Video",
               "isFreePreview": false
             },
             {
               "title": "Aggregate Functions",
               "description": "COUNT, SUM, AVG, MIN, MAX with GROUP BY.",
+              "videoUrl": "https://www.youtube.com/watch?v=HXV3zeQKqGY",
               "durationInSeconds": 1120,
               "type": "Video",
-              "isFreePreview": false
-            },
-            {
-              "title": "SQL Performance Quiz",
-              "description": "Test your advanced SQL knowledge.",
-              "durationInSeconds": 0,
-              "type": "Quiz",
               "isFreePreview": false
             }
           ]
@@ -854,7 +709,8 @@
           "lessons": [
             {
               "title": "Normalization",
-              "description": "1NF, 2NF, 3NF — design clean databases.",
+              "description": "1NF, 2NF, 3NF â€” design clean databases.",
+              "videoUrl": "https://www.youtube.com/watch?v=HXV3zeQKqGY",
               "durationInSeconds": 1340,
               "type": "Video",
               "isFreePreview": false
@@ -862,75 +718,8 @@
             {
               "title": "Indexes and Performance",
               "description": "Speed up queries with proper indexing.",
+              "videoUrl": "https://www.youtube.com/watch?v=HXV3zeQKqGY",
               "durationInSeconds": 1120,
-              "type": "Video",
-              "isFreePreview": false
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Entrepreneurship 101",
-      "description": "Start your entrepreneurial journey with this practical guide. Learn how to validate your business idea, build an MVP, find your first customers, and grow a sustainable business.",
-      "shortDescription": "From idea to business",
-      "price": 34.99,
-      "discountPrice": null,
-      "level": "Beginner",
-      "language": "English",
-      "subCategorySlug": "entrepreneurship",
-      "instructorEmail": "instructor@courseplatform.com",
-      "requirements": [
-        "No prior business experience needed",
-        "An entrepreneurial mindset"
-      ],
-      "whatYouLearn": [
-        "Validate your business idea",
-        "Build an MVP",
-        "Find your first customers",
-        "Create a business model"
-      ],
-      "sections": [
-        {
-          "title": "Finding Your Idea",
-          "lessons": [
-            {
-              "title": "Identifying Problems Worth Solving",
-              "description": "How to find business opportunities around you.",
-              "durationInSeconds": 1120,
-              "type": "Video",
-              "isFreePreview": true
-            },
-            {
-              "title": "Idea Validation Framework",
-              "description": "Validate your idea before building anything.",
-              "durationInSeconds": 1560,
-              "type": "Video",
-              "isFreePreview": false
-            },
-            {
-              "title": "Competitor Analysis",
-              "description": "Understand the market landscape.",
-              "durationInSeconds": 890,
-              "type": "Video",
-              "isFreePreview": false
-            }
-          ]
-        },
-        {
-          "title": "Building Your MVP",
-          "lessons": [
-            {
-              "title": "What is an MVP?",
-              "description": "Minimum Viable Product explained with examples.",
-              "durationInSeconds": 780,
-              "type": "Video",
-              "isFreePreview": false
-            },
-            {
-              "title": "Getting Your First Customers",
-              "description": "Strategies to acquire your first 10 customers.",
-              "durationInSeconds": 1340,
               "type": "Video",
               "isFreePreview": false
             }
@@ -941,13 +730,14 @@
     {
       "title": "Deep Learning with TensorFlow",
       "description": "Go beyond traditional ML and dive into deep learning. Build neural networks from scratch, implement CNNs for image recognition, RNNs for sequence data, and deploy models to production.",
-      "shortDescription": "Neural networks and deep learning",
+      "shortDescription": "Neural networks and deep learning with TensorFlow",
       "price": 79.99,
       "discountPrice": 64.99,
       "level": "Advanced",
       "language": "English",
+      "thumbnailUrl": "https://img.youtube.com/vi/tPYj3fFJGjk/maxresdefault.jpg",
       "subCategorySlug": "deep-learning",
-      "instructorEmail": "instructor@courseplatform.com",
+      "instructorEmail": "mohamed.hassan@guidy.com",
       "requirements": [
         "Python proficiency",
         "Machine learning basics",
@@ -966,21 +756,16 @@
             {
               "title": "What are Neural Networks?",
               "description": "Neurons, layers, and how networks learn.",
+              "videoUrl": "https://www.youtube.com/watch?v=tPYj3fFJGjk",
               "durationInSeconds": 1340,
               "type": "Video",
               "isFreePreview": true
             },
             {
               "title": "Activation Functions",
-              "description": "ReLU, Sigmoid, Softmax — when to use each.",
+              "description": "ReLU, Sigmoid, Softmax â€” when to use each.",
+              "videoUrl": "https://www.youtube.com/watch?v=tPYj3fFJGjk",
               "durationInSeconds": 980,
-              "type": "Video",
-              "isFreePreview": false
-            },
-            {
-              "title": "Backpropagation",
-              "description": "How neural networks actually learn.",
-              "durationInSeconds": 1560,
               "type": "Video",
               "isFreePreview": false
             }
@@ -990,15 +775,9 @@
           "title": "TensorFlow and Keras",
           "lessons": [
             {
-              "title": "Setting Up TensorFlow",
-              "description": "Install TensorFlow and Keras.",
-              "durationInSeconds": 540,
-              "type": "Video",
-              "isFreePreview": false
-            },
-            {
               "title": "Building Your First Neural Network",
               "description": "Sequential model with Keras step by step.",
+              "videoUrl": "https://www.youtube.com/watch?v=tPYj3fFJGjk",
               "durationInSeconds": 1780,
               "type": "Video",
               "isFreePreview": false
@@ -1006,6 +785,7 @@
             {
               "title": "Training and Evaluation",
               "description": "Train, validate, and evaluate your model.",
+              "videoUrl": "https://www.youtube.com/watch?v=tPYj3fFJGjk",
               "durationInSeconds": 1340,
               "type": "Video",
               "isFreePreview": false
@@ -1018,6 +798,7 @@
             {
               "title": "CNN Architecture",
               "description": "Convolution, pooling, and fully connected layers.",
+              "videoUrl": "https://www.youtube.com/watch?v=tPYj3fFJGjk",
               "durationInSeconds": 1890,
               "type": "Video",
               "isFreePreview": false
@@ -1025,9 +806,150 @@
             {
               "title": "Image Classification Project",
               "description": "Build a CNN that recognizes handwritten digits.",
+              "videoUrl": "https://www.youtube.com/watch?v=tPYj3fFJGjk",
               "durationInSeconds": 2340,
               "type": "Video",
               "isFreePreview": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Entrepreneurship 101",
+      "description": "Start your entrepreneurial journey with this practical guide. Learn how to validate your business idea, build an MVP, find your first customers, and grow a sustainable business.",
+      "shortDescription": "From idea to business â€” practical entrepreneurship guide",
+      "price": 34.99,
+      "discountPrice": null,
+      "level": "Beginner",
+      "language": "English",
+      "thumbnailUrl": "https://img.youtube.com/vi/ZoqgAy3h4OM/maxresdefault.jpg",
+      "subCategorySlug": "entrepreneurship",
+      "instructorEmail": "sara.ahmed@guidy.com",
+      "requirements": [
+        "No prior business experience needed",
+        "An entrepreneurial mindset"
+      ],
+      "whatYouLearn": [
+        "Validate your business idea",
+        "Build an MVP",
+        "Find your first customers",
+        "Create a business model"
+      ],
+      "sections": [
+        {
+          "title": "Finding Your Idea",
+          "lessons": [
+            {
+              "title": "Identifying Problems Worth Solving",
+              "description": "How to find business opportunities.",
+              "videoUrl": "https://www.youtube.com/watch?v=ZoqgAy3h4OM",
+              "durationInSeconds": 1120,
+              "type": "Video",
+              "isFreePreview": true
+            },
+            {
+              "title": "Idea Validation Framework",
+              "description": "Validate your idea before building anything.",
+              "videoUrl": "https://www.youtube.com/watch?v=ZoqgAy3h4OM",
+              "durationInSeconds": 1560,
+              "type": "Video",
+              "isFreePreview": false
+            }
+          ]
+        },
+        {
+          "title": "Building Your MVP",
+          "lessons": [
+            {
+              "title": "What is an MVP?",
+              "description": "Minimum Viable Product explained with examples.",
+              "videoUrl": "https://www.youtube.com/watch?v=ZoqgAy3h4OM",
+              "durationInSeconds": 780,
+              "type": "Video",
+              "isFreePreview": false
+            },
+            {
+              "title": "Getting Your First Customers",
+              "description": "Strategies to acquire your first 10 customers.",
+              "videoUrl": "https://www.youtube.com/watch?v=ZoqgAy3h4OM",
+              "durationInSeconds": 1340,
+              "type": "Video",
+              "isFreePreview": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Introduction to Programming â€” Free",
+      "description": "A completely free introduction to programming for absolute beginners. No prior experience needed. Learn the fundamental concepts of programming using simple examples and exercises.",
+      "shortDescription": "Free programming course for absolute beginners",
+      "price": 0,
+      "discountPrice": null,
+      "level": "Beginner",
+      "language": "English",
+      "thumbnailUrl": "https://img.youtube.com/vi/zOjov-2OZ0E/maxresdefault.jpg",
+      "subCategorySlug": "web-development",
+      "instructorEmail": "omar.khaled@guidy.com",
+      "requirements": [
+        "No experience needed",
+        "A computer with internet access"
+      ],
+      "whatYouLearn": [
+        "What is programming",
+        "Variables and data types",
+        "Conditions and loops",
+        "Functions and basic algorithms"
+      ],
+      "sections": [
+        {
+          "title": "Programming Concepts",
+          "lessons": [
+            {
+              "title": "What is Programming?",
+              "description": "Introduction to programming and computers.",
+              "videoUrl": "https://www.youtube.com/watch?v=zOjov-2OZ0E",
+              "durationInSeconds": 480,
+              "type": "Video",
+              "isFreePreview": true
+            },
+            {
+              "title": "Variables and Data Types",
+              "description": "Store and manipulate data in programs.",
+              "videoUrl": "https://www.youtube.com/watch?v=zOjov-2OZ0E",
+              "durationInSeconds": 720,
+              "type": "Video",
+              "isFreePreview": true
+            },
+            {
+              "title": "Conditions and Loops",
+              "description": "Make decisions and repeat actions in code.",
+              "videoUrl": "https://www.youtube.com/watch?v=zOjov-2OZ0E",
+              "durationInSeconds": 840,
+              "type": "Video",
+              "isFreePreview": true
+            }
+          ]
+        },
+        {
+          "title": "Functions and Algorithms",
+          "lessons": [
+            {
+              "title": "Functions",
+              "description": "Write reusable blocks of code.",
+              "videoUrl": "https://www.youtube.com/watch?v=zOjov-2OZ0E",
+              "durationInSeconds": 960,
+              "type": "Video",
+              "isFreePreview": true
+            },
+            {
+              "title": "Basic Algorithms",
+              "description": "Sorting, searching, and problem solving.",
+              "videoUrl": "https://www.youtube.com/watch?v=zOjov-2OZ0E",
+              "durationInSeconds": 1080,
+              "type": "Video",
+              "isFreePreview": true
             }
           ]
         }

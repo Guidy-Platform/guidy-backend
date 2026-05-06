@@ -1,0 +1,22 @@
+{
+  "reviews": [
+    {
+      "studentEmail": "ahmed.ali@guidy.com",
+      "courseTitle": "ASP.NET Core Masterclass",
+      "rating": 5,
+      "comment": "Very practical backend course."
+    },
+    {
+      "studentEmail": "aya.samir@guidy.com",
+      "courseTitle": "React for Beginners",
+      "rating": 4,
+      "comment": "Clear and beginner friendly."
+    },
+    {
+      "studentEmail": "mona.hany@guidy.com",
+      "courseTitle": "Python for Data Science",
+      "rating": 5,
+      "comment": "Excellent introduction to data science."
+    }
+  ]
+}
