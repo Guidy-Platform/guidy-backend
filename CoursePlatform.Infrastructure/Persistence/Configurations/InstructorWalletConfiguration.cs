@@ -15,13 +15,13 @@ public class InstructorWalletConfiguration
         builder.HasIndex(w => w.InstructorId).IsUnique();
 
         builder.Property(w => w.TotalEarned)
-            .HasColumnType("decimal(18,2)");
+            .HasColumnType("numeric(18,2)");
         builder.Property(w => w.TotalPaidOut)
-            .HasColumnType("decimal(18,2)");
+            .HasColumnType("numeric(18,2)");
         builder.Property(w => w.PendingAmount)
-            .HasColumnType("decimal(18,2)");
+            .HasColumnType("numeric(18,2)");
         builder.Property(w => w.AvailableBalance)
-            .HasColumnType("decimal(18,2)");
+            .HasColumnType("numeric(18,2)");
         builder.Property(w => w.StripeAccountId)
             .HasMaxLength(100);
 

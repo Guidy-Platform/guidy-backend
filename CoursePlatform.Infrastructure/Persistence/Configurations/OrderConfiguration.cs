@@ -46,7 +46,11 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
 
         builder.HasIndex(o => o.StudentId);
         builder.HasIndex(o => o.Status);
-        builder.HasIndex(o => o.PaymentIntentId).IsUnique()
-            .HasFilter("[PaymentIntentId] IS NOT NULL");
+
+
+        builder.HasIndex(o => o.PaymentIntentId)
+            .IsUnique()
+            .HasFilter("\"PaymentIntentId\" IS NOT NULL");
+
     }
 }

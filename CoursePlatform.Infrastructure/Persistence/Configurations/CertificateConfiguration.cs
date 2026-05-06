@@ -10,11 +10,11 @@ public class CertificateConfiguration : IEntityTypeConfiguration<Certificate>
     {
         builder.HasKey(c => c.Id);
 
-        // Ensure that a student can only have one certificate per course
+        // One certificate per student per course
         builder.HasIndex(c => new { c.StudentId, c.CourseId })
             .IsUnique();
 
-        // VerifyCode must be unique
+        // Unique verification code
         builder.HasIndex(c => c.VerifyCode)
             .IsUnique();
 
@@ -32,6 +32,8 @@ public class CertificateConfiguration : IEntityTypeConfiguration<Certificate>
 
         builder.Property(c => c.InstructorName)
             .HasMaxLength(100);
+
+        // Relationships
 
         builder.HasOne(c => c.Student)
             .WithMany()

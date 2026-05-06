@@ -15,7 +15,7 @@ public class OrderItemConfiguration : IEntityTypeConfiguration<OrderItem>
             .HasMaxLength(200);
 
         builder.Property(i => i.Price)
-            .HasColumnType("decimal(18,2)");
+            .HasColumnType("numeric(18,2)"); 
 
         builder.HasOne(i => i.Course)
             .WithMany()

@@ -16,14 +16,18 @@ public class CouponConfiguration : IEntityTypeConfiguration<Coupon>
 
         builder.Property(c => c.DiscountType)
             .HasConversion<string>()
-            .HasMaxLength(20);
+            .HasMaxLength(20)
+            .IsRequired();
 
         builder.Property(c => c.DiscountValue)
             .HasColumnType("decimal(18,2)");
 
-        // must be unique among active records
+        builder.Property(c => c.IsDeleted)
+            .HasDefaultValue(false);
+
+        //  PostgreSQL filtered unique index
         builder.HasIndex(c => c.Code)
             .IsUnique()
-            .HasFilter("[IsDeleted] = 0");
+            .HasFilter("\"IsDeleted\" = false");
     }
 }

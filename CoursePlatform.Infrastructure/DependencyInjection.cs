@@ -37,15 +37,15 @@ public static class DependencyInjection
         {
             var interceptor = sp.GetRequiredService<AuditInterceptor>();
 
-            opts.UseSqlServer(
-                config.GetConnectionString("DefaultConnection"),
-                sqlOptions =>
-                {
-                    sqlOptions.EnableRetryOnFailure(
-                        maxRetryCount: 5,
-                        maxRetryDelay: TimeSpan.FromSeconds(10),
-                        errorNumbersToAdd: null);
-                });
+            opts.UseNpgsql(
+                 config.GetConnectionString("DefaultConnection"),
+                 npgsqlOptions =>
+                 {
+                     npgsqlOptions.EnableRetryOnFailure(
+                         maxRetryCount: 5,
+                         maxRetryDelay: TimeSpan.FromSeconds(10),
+                         errorCodesToAdd: null); 
+                 });
 
             opts.AddInterceptors(interceptor);
         });

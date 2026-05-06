@@ -29,7 +29,6 @@ public class EnrollmentConfiguration : IEntityTypeConfiguration<Enrollment>
             .HasForeignKey(e => e.OrderId)
             .OnDelete(DeleteBehavior.Restrict);
 
-        builder.HasIndex(e => e.StudentId);
-        builder.HasIndex(e => e.CourseId);
+        builder.HasIndex(e => new { e.StudentId, e.CourseId });
     }
 }

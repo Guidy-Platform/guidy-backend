@@ -29,42 +29,44 @@ public class CourseConfiguration : IEntityTypeConfiguration<Course>
 
         builder.Property(c => c.Level)
             .HasConversion<string>()
-            .HasMaxLength(20);
+            .HasMaxLength(20)
+            .IsRequired();
 
         builder.Property(c => c.Status)
             .HasConversion<string>()
-            .HasMaxLength(20);
+            .HasMaxLength(20)
+            .IsRequired();
 
         builder.Property(c => c.Language)
             .HasMaxLength(50)
-            .HasDefaultValue("English");
+            .HasDefaultValueSql("'English'");
 
         builder.Property(c => c.Requirements)
-            .HasColumnType("nvarchar(max)");
+            .HasColumnType("text");
 
         builder.Property(c => c.WhatYouLearn)
-            .HasColumnType("nvarchar(max)");
+            .HasColumnType("text");
 
         builder.Property(c => c.RejectionReason)
             .HasMaxLength(1000);
 
-        // FK → AppUser (Guid)
+        builder.Property(c => c.IsDeleted)
+            .HasDefaultValue(false);
+
+        // Relationships
         builder.HasOne(c => c.Instructor)
             .WithMany()
             .HasForeignKey(c => c.InstructorId)
             .OnDelete(DeleteBehavior.Restrict);
 
-        // FK → SubCategory (int)
         builder.HasOne(c => c.SubCategory)
             .WithMany()
             .HasForeignKey(c => c.SubCategoryId)
             .OnDelete(DeleteBehavior.Restrict);
 
-        // Indexes للـ common queries
-        builder.HasIndex(c => c.Status);
+        // Optimized indexes
+        builder.HasIndex(c => new { c.Status, c.IsDeleted });
         builder.HasIndex(c => c.InstructorId);
         builder.HasIndex(c => c.SubCategoryId);
-        builder.HasIndex(c => c.IsDeleted);
-        builder.HasIndex(c => new { c.Status, c.IsDeleted });
     }
 }

@@ -23,7 +23,7 @@ public class SubCategoryConfiguration : IEntityTypeConfiguration<SubCategory>
 
         builder.HasIndex(s => new { s.CategoryId, s.Slug })
             .IsUnique()
-            .HasFilter("[IsDeleted] = 0");
+            .HasFilter("\"IsDeleted\" = false");
 
         builder.HasIndex(s => s.IsDeleted);
 

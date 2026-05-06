@@ -10,8 +10,6 @@ public class LessonProgressConfiguration : IEntityTypeConfiguration<LessonProgre
     {
         builder.HasKey(lp => lp.Id);
 
-        builder.HasIndex(lp => new { lp.StudentId, lp.LessonId })
-            .IsUnique();
 
         builder.HasIndex(lp => new { lp.StudentId, lp.CourseId });
 
